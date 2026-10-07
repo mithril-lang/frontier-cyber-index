@@ -6,6 +6,11 @@ Mithril's policy and evidence infrastructure.
 
 **Status: design proposal, v0.1. No benchmark runs or measured scores are published yet.**
 
+Explore [Mithril Analysis — Cybersecurity](https://analysis.mithril.fund/) for
+industry coverage, methodology, educational exercises, research and JSON downloads.
+The website pins dataset commit `44e3701ccea1c162a77be298bbe8c10bbd54d2f0`;
+subsequent repository publication notes do not change that dataset.
+
 ## Evaluation axes
 
 | Axis | Measures |
