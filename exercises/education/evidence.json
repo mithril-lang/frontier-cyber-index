@@ -1,0 +1,41 @@
+{
+  "id": "education",
+  "title": "教育: MFA回復窓口",
+  "synthetic": true,
+  "policy": "回復は登録済み独立経路の確認後のみ。音声/動画の見た目だけでは回復できない。通常授業を継続。",
+  "surfaces": [
+    "identity",
+    "synthetic-media",
+    "data"
+  ],
+  "actions": [
+    "allow",
+    "deny",
+    "hold",
+    "unknown",
+    "escalate",
+    "deduplicate"
+  ],
+  "events": [
+    {
+      "id": "E01",
+      "time": "12:00",
+      "observation": "IT担当を名乗る動画からMFA解除を要求。登録済み経路の確認なし。"
+    },
+    {
+      "id": "E02",
+      "time": "12:02",
+      "observation": "学生の通常LMSアクセス。既存session有効、role一致。"
+    },
+    {
+      "id": "E03",
+      "time": "12:03",
+      "observation": "登録済み窓口で独立確認が済んだ回復申請。承認IDと対象account一致。"
+    },
+    {
+      "id": "E04",
+      "time": "12:04",
+      "observation": "新しい連絡先しか記録がない回復要求。本人確認資料は未提供。"
+    }
+  ]
+}

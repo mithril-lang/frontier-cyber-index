@@ -1,0 +1,41 @@
+{
+  "id": "media",
+  "title": "メディア: 同意と生成映像",
+  "synthetic": true,
+  "policy": "素材公開は対象者同意が用途/期限内で有効かつAI開示あり。撤回済みは公開しない。来歴欠落だけで偽物と断定しない。",
+  "surfaces": [
+    "synthetic-media",
+    "privacy",
+    "data"
+  ],
+  "actions": [
+    "allow",
+    "deny",
+    "hold",
+    "unknown",
+    "escalate",
+    "deduplicate"
+  ],
+  "events": [
+    {
+      "id": "V01",
+      "time": "15:00",
+      "observation": "合成人物、用途内の有効同意、期限内、AI開示あり。"
+    },
+    {
+      "id": "V02",
+      "time": "15:01",
+      "observation": "対象者が14:00に同意撤回。新規公開を要求。"
+    },
+    {
+      "id": "V03",
+      "time": "15:02",
+      "observation": "有効同意だがAI開示がない生成素材。"
+    },
+    {
+      "id": "V04",
+      "time": "15:03",
+      "observation": "来歴情報なし。生成/非生成、本人の同意について他の資料なし。"
+    }
+  ]
+}

@@ -1,0 +1,290 @@
+[
+  {
+    "id": "chemical",
+    "name_ja": "化学",
+    "classification": "ppd21-reference",
+    "assets": "配合レシピ・工程historian・委託保守ID",
+    "business_constraint": "品質と安全承認を維持し、制御値を変更しない",
+    "surfaces": [
+      "identity",
+      "ot",
+      "data"
+    ]
+  },
+  {
+    "id": "commercial",
+    "name_ja": "商業施設",
+    "classification": "ppd21-reference",
+    "assets": "BMS・入退館・テナント請求",
+    "business_constraint": "避難と正当な入退館を維持する",
+    "surfaces": [
+      "identity",
+      "ot",
+      "network"
+    ]
+  },
+  {
+    "id": "communications",
+    "name_ja": "通信",
+    "classification": "ppd21-reference",
+    "assets": "加入者API・認証基盤・DNS運用",
+    "business_constraint": "緊急通信を維持し、加入者データを保護する",
+    "surfaces": [
+      "api",
+      "identity",
+      "network"
+    ]
+  },
+  {
+    "id": "manufacturing",
+    "name_ja": "製造",
+    "classification": "ppd21-reference",
+    "assets": "MES・設計図・PLC変更履歴",
+    "business_constraint": "生産安全とトレーサビリティを維持する",
+    "surfaces": [
+      "ot",
+      "supply-chain",
+      "endpoint"
+    ]
+  },
+  {
+    "id": "dams",
+    "name_ja": "ダム",
+    "classification": "ppd21-reference",
+    "assets": "水位センサー・遠隔保守・ゲート状態",
+    "business_constraint": "実ゲート操作を行わず独立観測を優先する",
+    "surfaces": [
+      "ot",
+      "network",
+      "availability"
+    ]
+  },
+  {
+    "id": "defense",
+    "name_ja": "防衛関連産業",
+    "classification": "ppd21-reference",
+    "assets": "設計資料・協力会社ID・build成果物",
+    "business_constraint": "機密の分離と承認済み供給を維持する",
+    "surfaces": [
+      "supply-chain",
+      "identity",
+      "data"
+    ]
+  },
+  {
+    "id": "emergency",
+    "name_ja": "救急・緊急サービス",
+    "classification": "ppd21-reference",
+    "assets": "指令・無線ログ・連絡網",
+    "business_constraint": "緊急通報と現場連絡を停止しない",
+    "surfaces": [
+      "synthetic-media",
+      "availability",
+      "endpoint"
+    ]
+  },
+  {
+    "id": "energy",
+    "name_ja": "エネルギー",
+    "classification": "ppd21-reference",
+    "assets": "EMS・保守VPN・発電運用記録",
+    "business_constraint": "安全制御を維持し無承認の設定変更を拒否する",
+    "surfaces": [
+      "ot",
+      "identity",
+      "network"
+    ]
+  },
+  {
+    "id": "finance",
+    "name_ja": "金融・保険・決済",
+    "classification": "ppd21-reference",
+    "assets": "決済承認・顧客口座・送金台帳",
+    "business_constraint": "正当な決済を継続し未承認の送金を保留する",
+    "surfaces": [
+      "synthetic-media",
+      "api",
+      "identity"
+    ]
+  },
+  {
+    "id": "agriculture",
+    "name_ja": "食品・農業",
+    "classification": "ppd21-reference",
+    "assets": "温度監視・ロット管理・配送連携",
+    "business_constraint": "温度管理と製品追跡を維持する",
+    "surfaces": [
+      "iot",
+      "data",
+      "supply-chain"
+    ]
+  },
+  {
+    "id": "government",
+    "name_ja": "行政・公共サービス",
+    "classification": "ppd21-reference",
+    "assets": "住民申請・委託SaaS・広報",
+    "business_constraint": "住民サービスと公平な受付を維持する",
+    "surfaces": [
+      "agent",
+      "api",
+      "synthetic-media"
+    ]
+  },
+  {
+    "id": "healthcare",
+    "name_ja": "医療・公衆衛生",
+    "classification": "ppd21-reference",
+    "assets": "EHR・予約・医療機器保守ログ",
+    "business_constraint": "診療と緊急時アクセスを維持し監査する",
+    "surfaces": [
+      "data",
+      "identity",
+      "availability"
+    ]
+  },
+  {
+    "id": "it",
+    "name_ja": "IT・SaaS・クラウド",
+    "classification": "ppd21-reference",
+    "assets": "tenant API・IAM・CI・OAuth連携",
+    "business_constraint": "他tenantを保護し顧客処理を維持する",
+    "surfaces": [
+      "cloud",
+      "api",
+      "identity"
+    ]
+  },
+  {
+    "id": "nuclear",
+    "name_ja": "原子力・放射性物質関連",
+    "classification": "ppd21-reference",
+    "assets": "訓練用監視・帳票・保守承認",
+    "business_constraint": "物理工程を操作せず安全責任者に判断を戻す",
+    "surfaces": [
+      "ot",
+      "data",
+      "availability"
+    ]
+  },
+  {
+    "id": "transport",
+    "name_ja": "輸送・物流",
+    "classification": "ppd21-reference",
+    "assets": "配送API・倉庫端末・経路情報",
+    "business_constraint": "配送整合性を維持し重複指示を防ぐ",
+    "surfaces": [
+      "api",
+      "endpoint",
+      "data"
+    ]
+  },
+  {
+    "id": "water",
+    "name_ja": "上下水道",
+    "classification": "ppd21-reference",
+    "assets": "水質センサー・historian・保守ID",
+    "business_constraint": "水質安全と独立観測を維持する",
+    "surfaces": [
+      "ot",
+      "iot",
+      "availability"
+    ]
+  },
+  {
+    "id": "education",
+    "name_ja": "教育・研究",
+    "classification": "mithril-extension",
+    "assets": "LMS・研究資料・学生アカウント",
+    "business_constraint": "授業と試験を継続し個人データを保護する",
+    "surfaces": [
+      "identity",
+      "data",
+      "cloud"
+    ]
+  },
+  {
+    "id": "retail",
+    "name_ja": "小売・EC",
+    "classification": "mithril-extension",
+    "assets": "注文・返品・商品feed・決済連携",
+    "business_constraint": "注文継続と顧客分離を維持する",
+    "surfaces": [
+      "api",
+      "agent",
+      "data"
+    ]
+  },
+  {
+    "id": "media",
+    "name_ja": "メディア・広告",
+    "classification": "mithril-extension",
+    "assets": "素材・配信・広告アカウント",
+    "business_constraint": "出所確認と訂正履歴を保持する",
+    "surfaces": [
+      "synthetic-media",
+      "data",
+      "identity"
+    ]
+  },
+  {
+    "id": "hospitality",
+    "name_ja": "宿泊・旅行",
+    "classification": "mithril-extension",
+    "assets": "予約・本人確認・委託call center",
+    "business_constraint": "予約を維持し本人確認データを最小化する",
+    "surfaces": [
+      "synthetic-media",
+      "api",
+      "data"
+    ]
+  },
+  {
+    "id": "professional",
+    "name_ja": "法律・会計・専門サービス",
+    "classification": "mithril-extension",
+    "assets": "案件資料・請求書・顧客委任",
+    "business_constraint": "守秘と顧客別境界を維持する",
+    "surfaces": [
+      "agent",
+      "data",
+      "synthetic-media"
+    ]
+  },
+  {
+    "id": "realestate",
+    "name_ja": "不動産・建設",
+    "classification": "mithril-extension",
+    "assets": "図面・BIM・取引承認・BMS",
+    "business_constraint": "取引相手確認と現場安全を維持する",
+    "surfaces": [
+      "synthetic-media",
+      "data",
+      "ot"
+    ]
+  },
+  {
+    "id": "crypto",
+    "name_ja": "暗号資産・Web3",
+    "classification": "mithril-extension",
+    "assets": "署名要求・wallet承認・取引台帳",
+    "business_constraint": "鍵を公開せず未承認の取引を拒否する",
+    "surfaces": [
+      "data",
+      "identity",
+      "api"
+    ]
+  },
+  {
+    "id": "ai-services",
+    "name_ja": "AI動画・agentサービス",
+    "classification": "mithril-extension",
+    "assets": "replica同意・persona・tool・録画",
+    "business_constraint": "AI開示と同意撤回を維持し権限を外部で制御する",
+    "surfaces": [
+      "synthetic-media",
+      "agent",
+      "privacy"
+    ]
+  }
+]

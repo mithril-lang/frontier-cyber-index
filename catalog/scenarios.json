@@ -1,0 +1,3386 @@
+[
+  {
+    "id": "chemical-a",
+    "sector": "chemical",
+    "stage": "A",
+    "format": "競技型・証拠分析",
+    "title_ja": "レシピ閲覧ログの越権を見つける",
+    "status": "specification",
+    "family_id": "chemical-workflow-v1",
+    "difficulty": "intro",
+    "minutes": 30,
+    "primary_domain": "investigate",
+    "csf_functions": [
+      "identify",
+      "detect"
+    ],
+    "surfaces": [
+      "identity",
+      "ot",
+      "data"
+    ],
+    "assets": "配合レシピ・工程historian・委託保守ID",
+    "business_constraint": "品質と安全承認を維持し、制御値を変更しない",
+    "brief": "架空の化学組織でレシピ閲覧ログの越権を見つける。配合レシピ・工程historian・委託保守IDの合成snapshotを使用。品質と安全承認を維持し、制御値を変更しない。",
+    "inputs_planned": [
+      "evidence.json",
+      "answer.json"
+    ],
+    "deliverables": [
+      "根拠event IDの正確性",
+      "正常対照の維持",
+      "未観測事項を断定しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "chemical-b",
+    "sector": "chemical",
+    "stage": "B",
+    "format": "業界シナリオ・修復",
+    "title_ja": "委託保守の期限付き権限を設計する",
+    "status": "specification",
+    "family_id": "chemical-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 120,
+    "primary_domain": "repair",
+    "csf_functions": [
+      "govern",
+      "protect"
+    ],
+    "surfaces": [
+      "identity",
+      "ot",
+      "data"
+    ],
+    "assets": "配合レシピ・工程historian・委託保守ID",
+    "business_constraint": "品質と安全承認を維持し、制御値を変更しない",
+    "brief": "架空の化学組織で委託保守の期限付き権限を設計する。配合レシピ・工程historian・委託保守IDの合成snapshotを使用。品質と安全承認を維持し、制御値を変更しない。",
+    "inputs_planned": [
+      "source/config snapshot",
+      "patch",
+      "regression receipt"
+    ],
+    "deliverables": [
+      "security test通過",
+      "正規業務test通過",
+      "過大権限を追加しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "chemical-c",
+    "sector": "chemical",
+    "stage": "C",
+    "format": "運用型・継続復旧",
+    "title_ja": "保守ID流出時の工程継続と証拠保全",
+    "status": "specification",
+    "family_id": "chemical-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 240,
+    "primary_domain": "detect-respond",
+    "csf_functions": [
+      "govern",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "surfaces": [
+      "identity",
+      "ot",
+      "data"
+    ],
+    "assets": "配合レシピ・工程historian・委託保守ID",
+    "business_constraint": "品質と安全承認を維持し、制御値を変更しない",
+    "brief": "架空の化学組織で保守ID流出時の工程継続と証拠保全。配合レシピ・工程historian・委託保守IDの合成snapshotを使用。品質と安全承認を維持し、制御値を変更しない。",
+    "inputs_planned": [
+      "時系列ログ",
+      "対応計画",
+      "復旧検証",
+      "影響通知案"
+    ],
+    "deliverables": [
+      "事前設定SLO/RTO/RPOを満たす",
+      "証拠保全",
+      "誤検知上限内",
+      "残余リスクと引継ぎ"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "commercial-a",
+    "sector": "commercial",
+    "stage": "A",
+    "format": "競技型・証拠分析",
+    "title_ja": "テナントを越える入館記録を識別する",
+    "status": "specification",
+    "family_id": "commercial-workflow-v1",
+    "difficulty": "intro",
+    "minutes": 30,
+    "primary_domain": "investigate",
+    "csf_functions": [
+      "identify",
+      "detect"
+    ],
+    "surfaces": [
+      "identity",
+      "ot",
+      "network"
+    ],
+    "assets": "BMS・入退館・テナント請求",
+    "business_constraint": "避難と正当な入退館を維持する",
+    "brief": "架空の商業施設組織でテナントを越える入館記録を識別する。BMS・入退館・テナント請求の合成snapshotを使用。避難と正当な入退館を維持する。",
+    "inputs_planned": [
+      "evidence.json",
+      "answer.json"
+    ],
+    "deliverables": [
+      "根拠event IDの正確性",
+      "正常対照の維持",
+      "未観測事項を断定しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "commercial-b",
+    "sector": "commercial",
+    "stage": "B",
+    "format": "業界シナリオ・修復",
+    "title_ja": "BMS管理網と来館者Wi-Fiを分離する",
+    "status": "specification",
+    "family_id": "commercial-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 120,
+    "primary_domain": "repair",
+    "csf_functions": [
+      "govern",
+      "protect"
+    ],
+    "surfaces": [
+      "identity",
+      "ot",
+      "network"
+    ],
+    "assets": "BMS・入退館・テナント請求",
+    "business_constraint": "避難と正当な入退館を維持する",
+    "brief": "架空の商業施設組織でBMS管理網と来館者Wi-Fiを分離する。BMS・入退館・テナント請求の合成snapshotを使用。避難と正当な入退館を維持する。",
+    "inputs_planned": [
+      "source/config snapshot",
+      "patch",
+      "regression receipt"
+    ],
+    "deliverables": [
+      "security test通過",
+      "正規業務test通過",
+      "過大権限を追加しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "commercial-c",
+    "sector": "commercial",
+    "stage": "C",
+    "format": "運用型・継続復旧",
+    "title_ja": "管理端末侵害後の入館業務を復旧する",
+    "status": "specification",
+    "family_id": "commercial-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 240,
+    "primary_domain": "detect-respond",
+    "csf_functions": [
+      "govern",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "surfaces": [
+      "identity",
+      "ot",
+      "network"
+    ],
+    "assets": "BMS・入退館・テナント請求",
+    "business_constraint": "避難と正当な入退館を維持する",
+    "brief": "架空の商業施設組織で管理端末侵害後の入館業務を復旧する。BMS・入退館・テナント請求の合成snapshotを使用。避難と正当な入退館を維持する。",
+    "inputs_planned": [
+      "時系列ログ",
+      "対応計画",
+      "復旧検証",
+      "影響通知案"
+    ],
+    "deliverables": [
+      "事前設定SLO/RTO/RPOを満たす",
+      "証拠保全",
+      "誤検知上限内",
+      "残余リスクと引継ぎ"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "communications-a",
+    "sector": "communications",
+    "stage": "A",
+    "format": "競技型・証拠分析",
+    "title_ja": "加入者APIのowner不一致を調査する",
+    "status": "specification",
+    "family_id": "communications-workflow-v1",
+    "difficulty": "intro",
+    "minutes": 30,
+    "primary_domain": "investigate",
+    "csf_functions": [
+      "identify",
+      "detect"
+    ],
+    "surfaces": [
+      "api",
+      "identity",
+      "network"
+    ],
+    "assets": "加入者API・認証基盤・DNS運用",
+    "business_constraint": "緊急通信を維持し、加入者データを保護する",
+    "brief": "架空の通信組織で加入者APIのowner不一致を調査する。加入者API・認証基盤・DNS運用の合成snapshotを使用。緊急通信を維持し、加入者データを保護する。",
+    "inputs_planned": [
+      "evidence.json",
+      "answer.json"
+    ],
+    "deliverables": [
+      "根拠event IDの正確性",
+      "正常対照の維持",
+      "未観測事項を断定しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "communications-b",
+    "sector": "communications",
+    "stage": "B",
+    "format": "業界シナリオ・修復",
+    "title_ja": "管理APIの認可とレート制限を修復する",
+    "status": "specification",
+    "family_id": "communications-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 120,
+    "primary_domain": "repair",
+    "csf_functions": [
+      "govern",
+      "protect"
+    ],
+    "surfaces": [
+      "api",
+      "identity",
+      "network"
+    ],
+    "assets": "加入者API・認証基盤・DNS運用",
+    "business_constraint": "緊急通信を維持し、加入者データを保護する",
+    "brief": "架空の通信組織で管理APIの認可とレート制限を修復する。加入者API・認証基盤・DNS運用の合成snapshotを使用。緊急通信を維持し、加入者データを保護する。",
+    "inputs_planned": [
+      "source/config snapshot",
+      "patch",
+      "regression receipt"
+    ],
+    "deliverables": [
+      "security test通過",
+      "正規業務test通過",
+      "過大権限を追加しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "communications-c",
+    "sector": "communications",
+    "stage": "C",
+    "format": "運用型・継続復旧",
+    "title_ja": "DNS設定改変と認証ログ欠落を同時に調査する",
+    "status": "specification",
+    "family_id": "communications-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 240,
+    "primary_domain": "detect-respond",
+    "csf_functions": [
+      "govern",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "surfaces": [
+      "api",
+      "identity",
+      "network"
+    ],
+    "assets": "加入者API・認証基盤・DNS運用",
+    "business_constraint": "緊急通信を維持し、加入者データを保護する",
+    "brief": "架空の通信組織でDNS設定改変と認証ログ欠落を同時に調査する。加入者API・認証基盤・DNS運用の合成snapshotを使用。緊急通信を維持し、加入者データを保護する。",
+    "inputs_planned": [
+      "時系列ログ",
+      "対応計画",
+      "復旧検証",
+      "影響通知案"
+    ],
+    "deliverables": [
+      "事前設定SLO/RTO/RPOを満たす",
+      "証拠保全",
+      "誤検知上限内",
+      "残余リスクと引継ぎ"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "manufacturing-a",
+    "sector": "manufacturing",
+    "stage": "A",
+    "format": "競技型・証拠分析",
+    "title_ja": "承認済み保守と期限切れ接続を区別する",
+    "status": "specification",
+    "family_id": "manufacturing-workflow-v1",
+    "difficulty": "intro",
+    "minutes": 30,
+    "primary_domain": "investigate",
+    "csf_functions": [
+      "identify",
+      "detect"
+    ],
+    "surfaces": [
+      "ot",
+      "supply-chain",
+      "endpoint"
+    ],
+    "assets": "MES・設計図・PLC変更履歴",
+    "business_constraint": "生産安全とトレーサビリティを維持する",
+    "brief": "架空の製造組織で承認済み保守と期限切れ接続を区別する。MES・設計図・PLC変更履歴の合成snapshotを使用。生産安全とトレーサビリティを維持する。",
+    "inputs_planned": [
+      "evidence.json",
+      "answer.json"
+    ],
+    "deliverables": [
+      "根拠event IDの正確性",
+      "正常対照の維持",
+      "未観測事項を断定しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "manufacturing-b",
+    "sector": "manufacturing",
+    "stage": "B",
+    "format": "業界シナリオ・修復",
+    "title_ja": "CI配布の署名・SBOM・変更承認を修復する",
+    "status": "specification",
+    "family_id": "manufacturing-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 120,
+    "primary_domain": "repair",
+    "csf_functions": [
+      "govern",
+      "protect"
+    ],
+    "surfaces": [
+      "ot",
+      "supply-chain",
+      "endpoint"
+    ],
+    "assets": "MES・設計図・PLC変更履歴",
+    "business_constraint": "生産安全とトレーサビリティを維持する",
+    "brief": "架空の製造組織でCI配布の署名・SBOM・変更承認を修復する。MES・設計図・PLC変更履歴の合成snapshotを使用。生産安全とトレーサビリティを維持する。",
+    "inputs_planned": [
+      "source/config snapshot",
+      "patch",
+      "regression receipt"
+    ],
+    "deliverables": [
+      "security test通過",
+      "正規業務test通過",
+      "過大権限を追加しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "manufacturing-c",
+    "sector": "manufacturing",
+    "stage": "C",
+    "format": "運用型・継続復旧",
+    "title_ja": "部品供給ソフト更新の改変を検知し段階復旧する",
+    "status": "specification",
+    "family_id": "manufacturing-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 240,
+    "primary_domain": "detect-respond",
+    "csf_functions": [
+      "govern",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "surfaces": [
+      "ot",
+      "supply-chain",
+      "endpoint"
+    ],
+    "assets": "MES・設計図・PLC変更履歴",
+    "business_constraint": "生産安全とトレーサビリティを維持する",
+    "brief": "架空の製造組織で部品供給ソフト更新の改変を検知し段階復旧する。MES・設計図・PLC変更履歴の合成snapshotを使用。生産安全とトレーサビリティを維持する。",
+    "inputs_planned": [
+      "時系列ログ",
+      "対応計画",
+      "復旧検証",
+      "影響通知案"
+    ],
+    "deliverables": [
+      "事前設定SLO/RTO/RPOを満たす",
+      "証拠保全",
+      "誤検知上限内",
+      "残余リスクと引継ぎ"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "dams-a",
+    "sector": "dams",
+    "stage": "A",
+    "format": "競技型・証拠分析",
+    "title_ja": "センサー値と独立計測の矛盾を説明する",
+    "status": "specification",
+    "family_id": "dams-workflow-v1",
+    "difficulty": "intro",
+    "minutes": 30,
+    "primary_domain": "investigate",
+    "csf_functions": [
+      "identify",
+      "detect"
+    ],
+    "surfaces": [
+      "ot",
+      "network",
+      "availability"
+    ],
+    "assets": "水位センサー・遠隔保守・ゲート状態",
+    "business_constraint": "実ゲート操作を行わず独立観測を優先する",
+    "brief": "架空のダム組織でセンサー値と独立計測の矛盾を説明する。水位センサー・遠隔保守・ゲート状態の合成snapshotを使用。実ゲート操作を行わず独立観測を優先する。",
+    "inputs_planned": [
+      "evidence.json",
+      "answer.json"
+    ],
+    "deliverables": [
+      "根拠event IDの正確性",
+      "正常対照の維持",
+      "未観測事項を断定しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "dams-b",
+    "sector": "dams",
+    "stage": "B",
+    "format": "業界シナリオ・修復",
+    "title_ja": "保守権限と監視経路の分離を設計する",
+    "status": "specification",
+    "family_id": "dams-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 120,
+    "primary_domain": "repair",
+    "csf_functions": [
+      "govern",
+      "protect"
+    ],
+    "surfaces": [
+      "ot",
+      "network",
+      "availability"
+    ],
+    "assets": "水位センサー・遠隔保守・ゲート状態",
+    "business_constraint": "実ゲート操作を行わず独立観測を優先する",
+    "brief": "架空のダム組織で保守権限と監視経路の分離を設計する。水位センサー・遠隔保守・ゲート状態の合成snapshotを使用。実ゲート操作を行わず独立観測を優先する。",
+    "inputs_planned": [
+      "source/config snapshot",
+      "patch",
+      "regression receipt"
+    ],
+    "deliverables": [
+      "security test通過",
+      "正規業務test通過",
+      "過大権限を追加しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "dams-c",
+    "sector": "dams",
+    "stage": "C",
+    "format": "運用型・継続復旧",
+    "title_ja": "遠隔監視停止時の安全な手動連絡へ切り替える",
+    "status": "specification",
+    "family_id": "dams-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 240,
+    "primary_domain": "detect-respond",
+    "csf_functions": [
+      "govern",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "surfaces": [
+      "ot",
+      "network",
+      "availability"
+    ],
+    "assets": "水位センサー・遠隔保守・ゲート状態",
+    "business_constraint": "実ゲート操作を行わず独立観測を優先する",
+    "brief": "架空のダム組織で遠隔監視停止時の安全な手動連絡へ切り替える。水位センサー・遠隔保守・ゲート状態の合成snapshotを使用。実ゲート操作を行わず独立観測を優先する。",
+    "inputs_planned": [
+      "時系列ログ",
+      "対応計画",
+      "復旧検証",
+      "影響通知案"
+    ],
+    "deliverables": [
+      "事前設定SLO/RTO/RPOを満たす",
+      "証拠保全",
+      "誤検知上限内",
+      "残余リスクと引継ぎ"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "defense-a",
+    "sector": "defense",
+    "stage": "A",
+    "format": "競技型・証拠分析",
+    "title_ja": "協力会社の文書取得範囲を特定する",
+    "status": "specification",
+    "family_id": "defense-workflow-v1",
+    "difficulty": "intro",
+    "minutes": 30,
+    "primary_domain": "investigate",
+    "csf_functions": [
+      "identify",
+      "detect"
+    ],
+    "surfaces": [
+      "supply-chain",
+      "identity",
+      "data"
+    ],
+    "assets": "設計資料・協力会社ID・build成果物",
+    "business_constraint": "機密の分離と承認済み供給を維持する",
+    "brief": "架空の防衛関連産業組織で協力会社の文書取得範囲を特定する。設計資料・協力会社ID・build成果物の合成snapshotを使用。機密の分離と承認済み供給を維持する。",
+    "inputs_planned": [
+      "evidence.json",
+      "answer.json"
+    ],
+    "deliverables": [
+      "根拠event IDの正確性",
+      "正常対照の維持",
+      "未観測事項を断定しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "defense-b",
+    "sector": "defense",
+    "stage": "B",
+    "format": "業界シナリオ・修復",
+    "title_ja": "署名付きbuildとアクセス境界を修復する",
+    "status": "specification",
+    "family_id": "defense-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 120,
+    "primary_domain": "repair",
+    "csf_functions": [
+      "govern",
+      "protect"
+    ],
+    "surfaces": [
+      "supply-chain",
+      "identity",
+      "data"
+    ],
+    "assets": "設計資料・協力会社ID・build成果物",
+    "business_constraint": "機密の分離と承認済み供給を維持する",
+    "brief": "架空の防衛関連産業組織で署名付きbuildとアクセス境界を修復する。設計資料・協力会社ID・build成果物の合成snapshotを使用。機密の分離と承認済み供給を維持する。",
+    "inputs_planned": [
+      "source/config snapshot",
+      "patch",
+      "regression receipt"
+    ],
+    "deliverables": [
+      "security test通過",
+      "正規業務test通過",
+      "過大権限を追加しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "defense-c",
+    "sector": "defense",
+    "stage": "C",
+    "format": "運用型・継続復旧",
+    "title_ja": "供給先ID漏洩に伴う資料露出を調査する",
+    "status": "specification",
+    "family_id": "defense-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 240,
+    "primary_domain": "detect-respond",
+    "csf_functions": [
+      "govern",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "surfaces": [
+      "supply-chain",
+      "identity",
+      "data"
+    ],
+    "assets": "設計資料・協力会社ID・build成果物",
+    "business_constraint": "機密の分離と承認済み供給を維持する",
+    "brief": "架空の防衛関連産業組織で供給先ID漏洩に伴う資料露出を調査する。設計資料・協力会社ID・build成果物の合成snapshotを使用。機密の分離と承認済み供給を維持する。",
+    "inputs_planned": [
+      "時系列ログ",
+      "対応計画",
+      "復旧検証",
+      "影響通知案"
+    ],
+    "deliverables": [
+      "事前設定SLO/RTO/RPOを満たす",
+      "証拠保全",
+      "誤検知上限内",
+      "残余リスクと引継ぎ"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "emergency-a",
+    "sector": "emergency",
+    "stage": "A",
+    "format": "競技型・証拠分析",
+    "title_ja": "偽の連絡先変更指示を確認する",
+    "status": "specification",
+    "family_id": "emergency-workflow-v1",
+    "difficulty": "intro",
+    "minutes": 30,
+    "primary_domain": "investigate",
+    "csf_functions": [
+      "identify",
+      "detect"
+    ],
+    "surfaces": [
+      "synthetic-media",
+      "availability",
+      "endpoint"
+    ],
+    "assets": "指令・無線ログ・連絡網",
+    "business_constraint": "緊急通報と現場連絡を停止しない",
+    "brief": "架空の救急・緊急サービス組織で偽の連絡先変更指示を確認する。指令・無線ログ・連絡網の合成snapshotを使用。緊急通報と現場連絡を停止しない。",
+    "inputs_planned": [
+      "evidence.json",
+      "answer.json"
+    ],
+    "deliverables": [
+      "根拠event IDの正確性",
+      "正常対照の維持",
+      "未観測事項を断定しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "emergency-b",
+    "sector": "emergency",
+    "stage": "B",
+    "format": "業界シナリオ・修復",
+    "title_ja": "連絡網更新の二者承認を設計する",
+    "status": "specification",
+    "family_id": "emergency-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 120,
+    "primary_domain": "repair",
+    "csf_functions": [
+      "govern",
+      "protect"
+    ],
+    "surfaces": [
+      "synthetic-media",
+      "availability",
+      "endpoint"
+    ],
+    "assets": "指令・無線ログ・連絡網",
+    "business_constraint": "緊急通報と現場連絡を停止しない",
+    "brief": "架空の救急・緊急サービス組織で連絡網更新の二者承認を設計する。指令・無線ログ・連絡網の合成snapshotを使用。緊急通報と現場連絡を停止しない。",
+    "inputs_planned": [
+      "source/config snapshot",
+      "patch",
+      "regression receipt"
+    ],
+    "deliverables": [
+      "security test通過",
+      "正規業務test通過",
+      "過大権限を追加しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "emergency-c",
+    "sector": "emergency",
+    "stage": "C",
+    "format": "運用型・継続復旧",
+    "title_ja": "指令端末停止時の継続と復旧を判断する",
+    "status": "specification",
+    "family_id": "emergency-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 240,
+    "primary_domain": "detect-respond",
+    "csf_functions": [
+      "govern",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "surfaces": [
+      "synthetic-media",
+      "availability",
+      "endpoint"
+    ],
+    "assets": "指令・無線ログ・連絡網",
+    "business_constraint": "緊急通報と現場連絡を停止しない",
+    "brief": "架空の救急・緊急サービス組織で指令端末停止時の継続と復旧を判断する。指令・無線ログ・連絡網の合成snapshotを使用。緊急通報と現場連絡を停止しない。",
+    "inputs_planned": [
+      "時系列ログ",
+      "対応計画",
+      "復旧検証",
+      "影響通知案"
+    ],
+    "deliverables": [
+      "事前設定SLO/RTO/RPOを満たす",
+      "証拠保全",
+      "誤検知上限内",
+      "残余リスクと引継ぎ"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "energy-a",
+    "sector": "energy",
+    "stage": "A",
+    "format": "競技型・証拠分析",
+    "title_ja": "遠隔保守の許可期間外の動作を検出する",
+    "status": "specification",
+    "family_id": "energy-workflow-v1",
+    "difficulty": "intro",
+    "minutes": 30,
+    "primary_domain": "investigate",
+    "csf_functions": [
+      "identify",
+      "detect"
+    ],
+    "surfaces": [
+      "ot",
+      "identity",
+      "network"
+    ],
+    "assets": "EMS・保守VPN・発電運用記録",
+    "business_constraint": "安全制御を維持し無承認の設定変更を拒否する",
+    "brief": "架空のエネルギー組織で遠隔保守の許可期間外の動作を検出する。EMS・保守VPN・発電運用記録の合成snapshotを使用。安全制御を維持し無承認の設定変更を拒否する。",
+    "inputs_planned": [
+      "evidence.json",
+      "answer.json"
+    ],
+    "deliverables": [
+      "根拠event IDの正確性",
+      "正常対照の維持",
+      "未観測事項を断定しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "energy-b",
+    "sector": "energy",
+    "stage": "B",
+    "format": "業界シナリオ・修復",
+    "title_ja": "管理網の分離と委任scopeを修復する",
+    "status": "specification",
+    "family_id": "energy-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 120,
+    "primary_domain": "repair",
+    "csf_functions": [
+      "govern",
+      "protect"
+    ],
+    "surfaces": [
+      "ot",
+      "identity",
+      "network"
+    ],
+    "assets": "EMS・保守VPN・発電運用記録",
+    "business_constraint": "安全制御を維持し無承認の設定変更を拒否する",
+    "brief": "架空のエネルギー組織で管理網の分離と委任scopeを修復する。EMS・保守VPN・発電運用記録の合成snapshotを使用。安全制御を維持し無承認の設定変更を拒否する。",
+    "inputs_planned": [
+      "source/config snapshot",
+      "patch",
+      "regression receipt"
+    ],
+    "deliverables": [
+      "security test通過",
+      "正規業務test通過",
+      "過大権限を追加しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "energy-c",
+    "sector": "energy",
+    "stage": "C",
+    "format": "運用型・継続復旧",
+    "title_ja": "監視データの異常と保守ID流出を調査する",
+    "status": "specification",
+    "family_id": "energy-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 240,
+    "primary_domain": "detect-respond",
+    "csf_functions": [
+      "govern",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "surfaces": [
+      "ot",
+      "identity",
+      "network"
+    ],
+    "assets": "EMS・保守VPN・発電運用記録",
+    "business_constraint": "安全制御を維持し無承認の設定変更を拒否する",
+    "brief": "架空のエネルギー組織で監視データの異常と保守ID流出を調査する。EMS・保守VPN・発電運用記録の合成snapshotを使用。安全制御を維持し無承認の設定変更を拒否する。",
+    "inputs_planned": [
+      "時系列ログ",
+      "対応計画",
+      "復旧検証",
+      "影響通知案"
+    ],
+    "deliverables": [
+      "事前設定SLO/RTO/RPOを満たす",
+      "証拠保全",
+      "誤検知上限内",
+      "残余リスクと引継ぎ"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "finance-a",
+    "sector": "finance",
+    "stage": "A",
+    "format": "競技型・証拠分析",
+    "title_ja": "AI音声による振込先変更を検証する",
+    "status": "specification",
+    "family_id": "finance-workflow-v1",
+    "difficulty": "intro",
+    "minutes": 30,
+    "primary_domain": "investigate",
+    "csf_functions": [
+      "identify",
+      "detect"
+    ],
+    "surfaces": [
+      "synthetic-media",
+      "api",
+      "identity"
+    ],
+    "assets": "決済承認・顧客口座・送金台帳",
+    "business_constraint": "正当な決済を継続し未承認の送金を保留する",
+    "brief": "架空の金融・保険・決済組織でAI音声による振込先変更を検証する。決済承認・顧客口座・送金台帳の合成snapshotを使用。正当な決済を継続し未承認の送金を保留する。",
+    "inputs_planned": [
+      "evidence.json",
+      "answer.json"
+    ],
+    "deliverables": [
+      "根拠event IDの正確性",
+      "正常対照の維持",
+      "未観測事項を断定しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "finance-b",
+    "sector": "finance",
+    "stage": "B",
+    "format": "業界シナリオ・修復",
+    "title_ja": "Webhookの重複処理と認可を修復する",
+    "status": "specification",
+    "family_id": "finance-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 120,
+    "primary_domain": "repair",
+    "csf_functions": [
+      "govern",
+      "protect"
+    ],
+    "surfaces": [
+      "synthetic-media",
+      "api",
+      "identity"
+    ],
+    "assets": "決済承認・顧客口座・送金台帳",
+    "business_constraint": "正当な決済を継続し未承認の送金を保留する",
+    "brief": "架空の金融・保険・決済組織でWebhookの重複処理と認可を修復する。決済承認・顧客口座・送金台帳の合成snapshotを使用。正当な決済を継続し未承認の送金を保留する。",
+    "inputs_planned": [
+      "source/config snapshot",
+      "patch",
+      "regression receipt"
+    ],
+    "deliverables": [
+      "security test通過",
+      "正規業務test通過",
+      "過大権限を追加しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "finance-c",
+    "sector": "finance",
+    "stage": "C",
+    "format": "運用型・継続復旧",
+    "title_ja": "経営者なりすましと台帳不整合を処理する",
+    "status": "specification",
+    "family_id": "finance-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 240,
+    "primary_domain": "detect-respond",
+    "csf_functions": [
+      "govern",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "surfaces": [
+      "synthetic-media",
+      "api",
+      "identity"
+    ],
+    "assets": "決済承認・顧客口座・送金台帳",
+    "business_constraint": "正当な決済を継続し未承認の送金を保留する",
+    "brief": "架空の金融・保険・決済組織で経営者なりすましと台帳不整合を処理する。決済承認・顧客口座・送金台帳の合成snapshotを使用。正当な決済を継続し未承認の送金を保留する。",
+    "inputs_planned": [
+      "時系列ログ",
+      "対応計画",
+      "復旧検証",
+      "影響通知案"
+    ],
+    "deliverables": [
+      "事前設定SLO/RTO/RPOを満たす",
+      "証拠保全",
+      "誤検知上限内",
+      "残余リスクと引継ぎ"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "agriculture-a",
+    "sector": "agriculture",
+    "stage": "A",
+    "format": "競技型・証拠分析",
+    "title_ja": "温度ログ欠落と真の逸脱を区別する",
+    "status": "specification",
+    "family_id": "agriculture-workflow-v1",
+    "difficulty": "intro",
+    "minutes": 30,
+    "primary_domain": "investigate",
+    "csf_functions": [
+      "identify",
+      "detect"
+    ],
+    "surfaces": [
+      "iot",
+      "data",
+      "supply-chain"
+    ],
+    "assets": "温度監視・ロット管理・配送連携",
+    "business_constraint": "温度管理と製品追跡を維持する",
+    "brief": "架空の食品・農業組織で温度ログ欠落と真の逸脱を区別する。温度監視・ロット管理・配送連携の合成snapshotを使用。温度管理と製品追跡を維持する。",
+    "inputs_planned": [
+      "evidence.json",
+      "answer.json"
+    ],
+    "deliverables": [
+      "根拠event IDの正確性",
+      "正常対照の維持",
+      "未観測事項を断定しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "agriculture-b",
+    "sector": "agriculture",
+    "stage": "B",
+    "format": "業界シナリオ・修復",
+    "title_ja": "センサー更新と配送署名の信頼境界を修復する",
+    "status": "specification",
+    "family_id": "agriculture-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 120,
+    "primary_domain": "repair",
+    "csf_functions": [
+      "govern",
+      "protect"
+    ],
+    "surfaces": [
+      "iot",
+      "data",
+      "supply-chain"
+    ],
+    "assets": "温度監視・ロット管理・配送連携",
+    "business_constraint": "温度管理と製品追跡を維持する",
+    "brief": "架空の食品・農業組織でセンサー更新と配送署名の信頼境界を修復する。温度監視・ロット管理・配送連携の合成snapshotを使用。温度管理と製品追跡を維持する。",
+    "inputs_planned": [
+      "source/config snapshot",
+      "patch",
+      "regression receipt"
+    ],
+    "deliverables": [
+      "security test通過",
+      "正規業務test通過",
+      "過大権限を追加しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "agriculture-c",
+    "sector": "agriculture",
+    "stage": "C",
+    "format": "運用型・継続復旧",
+    "title_ja": "収穫・配送障害の影響ロットを隔離する",
+    "status": "specification",
+    "family_id": "agriculture-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 240,
+    "primary_domain": "detect-respond",
+    "csf_functions": [
+      "govern",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "surfaces": [
+      "iot",
+      "data",
+      "supply-chain"
+    ],
+    "assets": "温度監視・ロット管理・配送連携",
+    "business_constraint": "温度管理と製品追跡を維持する",
+    "brief": "架空の食品・農業組織で収穫・配送障害の影響ロットを隔離する。温度監視・ロット管理・配送連携の合成snapshotを使用。温度管理と製品追跡を維持する。",
+    "inputs_planned": [
+      "時系列ログ",
+      "対応計画",
+      "復旧検証",
+      "影響通知案"
+    ],
+    "deliverables": [
+      "事前設定SLO/RTO/RPOを満たす",
+      "証拠保全",
+      "誤検知上限内",
+      "残余リスクと引継ぎ"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "government-a",
+    "sector": "government",
+    "stage": "A",
+    "format": "競技型・証拠分析",
+    "title_ja": "申請文書へのagent向け指示混入を特定する",
+    "status": "specification",
+    "family_id": "government-workflow-v1",
+    "difficulty": "intro",
+    "minutes": 30,
+    "primary_domain": "investigate",
+    "csf_functions": [
+      "identify",
+      "detect"
+    ],
+    "surfaces": [
+      "agent",
+      "api",
+      "synthetic-media"
+    ],
+    "assets": "住民申請・委託SaaS・広報",
+    "business_constraint": "住民サービスと公平な受付を維持する",
+    "brief": "架空の行政・公共サービス組織で申請文書へのagent向け指示混入を特定する。住民申請・委託SaaS・広報の合成snapshotを使用。住民サービスと公平な受付を維持する。",
+    "inputs_planned": [
+      "evidence.json",
+      "answer.json"
+    ],
+    "deliverables": [
+      "根拠event IDの正確性",
+      "正常対照の維持",
+      "未観測事項を断定しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "government-b",
+    "sector": "government",
+    "stage": "B",
+    "format": "業界シナリオ・修復",
+    "title_ja": "委託者と部署間の文書認可を修復する",
+    "status": "specification",
+    "family_id": "government-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 120,
+    "primary_domain": "repair",
+    "csf_functions": [
+      "govern",
+      "protect"
+    ],
+    "surfaces": [
+      "agent",
+      "api",
+      "synthetic-media"
+    ],
+    "assets": "住民申請・委託SaaS・広報",
+    "business_constraint": "住民サービスと公平な受付を維持する",
+    "brief": "架空の行政・公共サービス組織で委託者と部署間の文書認可を修復する。住民申請・委託SaaS・広報の合成snapshotを使用。住民サービスと公平な受付を維持する。",
+    "inputs_planned": [
+      "source/config snapshot",
+      "patch",
+      "regression receipt"
+    ],
+    "deliverables": [
+      "security test通過",
+      "正規業務test通過",
+      "過大権限を追加しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "government-c",
+    "sector": "government",
+    "stage": "C",
+    "format": "運用型・継続復旧",
+    "title_ja": "偽広報と申請システム障害を同時対応する",
+    "status": "specification",
+    "family_id": "government-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 240,
+    "primary_domain": "detect-respond",
+    "csf_functions": [
+      "govern",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "surfaces": [
+      "agent",
+      "api",
+      "synthetic-media"
+    ],
+    "assets": "住民申請・委託SaaS・広報",
+    "business_constraint": "住民サービスと公平な受付を維持する",
+    "brief": "架空の行政・公共サービス組織で偽広報と申請システム障害を同時対応する。住民申請・委託SaaS・広報の合成snapshotを使用。住民サービスと公平な受付を維持する。",
+    "inputs_planned": [
+      "時系列ログ",
+      "対応計画",
+      "復旧検証",
+      "影響通知案"
+    ],
+    "deliverables": [
+      "事前設定SLO/RTO/RPOを満たす",
+      "証拠保全",
+      "誤検知上限内",
+      "残余リスクと引継ぎ"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "healthcare-a",
+    "sector": "healthcare",
+    "stage": "A",
+    "format": "競技型・証拠分析",
+    "title_ja": "不適切な患者記録閲覧を特定する",
+    "status": "specification",
+    "family_id": "healthcare-workflow-v1",
+    "difficulty": "intro",
+    "minutes": 30,
+    "primary_domain": "investigate",
+    "csf_functions": [
+      "identify",
+      "detect"
+    ],
+    "surfaces": [
+      "data",
+      "identity",
+      "availability"
+    ],
+    "assets": "EHR・予約・医療機器保守ログ",
+    "business_constraint": "診療と緊急時アクセスを維持し監査する",
+    "brief": "架空の医療・公衆衛生組織で不適切な患者記録閲覧を特定する。EHR・予約・医療機器保守ログの合成snapshotを使用。診療と緊急時アクセスを維持し監査する。",
+    "inputs_planned": [
+      "evidence.json",
+      "answer.json"
+    ],
+    "deliverables": [
+      "根拠event IDの正確性",
+      "正常対照の維持",
+      "未観測事項を断定しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "healthcare-b",
+    "sector": "healthcare",
+    "stage": "B",
+    "format": "業界シナリオ・修復",
+    "title_ja": "break-glass監査と通常権限を修復する",
+    "status": "specification",
+    "family_id": "healthcare-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 120,
+    "primary_domain": "repair",
+    "csf_functions": [
+      "govern",
+      "protect"
+    ],
+    "surfaces": [
+      "data",
+      "identity",
+      "availability"
+    ],
+    "assets": "EHR・予約・医療機器保守ログ",
+    "business_constraint": "診療と緊急時アクセスを維持し監査する",
+    "brief": "架空の医療・公衆衛生組織でbreak-glass監査と通常権限を修復する。EHR・予約・医療機器保守ログの合成snapshotを使用。診療と緊急時アクセスを維持し監査する。",
+    "inputs_planned": [
+      "source/config snapshot",
+      "patch",
+      "regression receipt"
+    ],
+    "deliverables": [
+      "security test通過",
+      "正規業務test通過",
+      "過大権限を追加しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "healthcare-c",
+    "sector": "healthcare",
+    "stage": "C",
+    "format": "運用型・継続復旧",
+    "title_ja": "ランサムウェア疑いで診療継続と復旧を判断する",
+    "status": "specification",
+    "family_id": "healthcare-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 240,
+    "primary_domain": "detect-respond",
+    "csf_functions": [
+      "govern",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "surfaces": [
+      "data",
+      "identity",
+      "availability"
+    ],
+    "assets": "EHR・予約・医療機器保守ログ",
+    "business_constraint": "診療と緊急時アクセスを維持し監査する",
+    "brief": "架空の医療・公衆衛生組織でランサムウェア疑いで診療継続と復旧を判断する。EHR・予約・医療機器保守ログの合成snapshotを使用。診療と緊急時アクセスを維持し監査する。",
+    "inputs_planned": [
+      "時系列ログ",
+      "対応計画",
+      "復旧検証",
+      "影響通知案"
+    ],
+    "deliverables": [
+      "事前設定SLO/RTO/RPOを満たす",
+      "証拠保全",
+      "誤検知上限内",
+      "残余リスクと引継ぎ"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "it-a",
+    "sector": "it",
+    "stage": "A",
+    "format": "競技型・証拠分析",
+    "title_ja": "CRM連携の大量取得と正規同期を区別する",
+    "status": "specification",
+    "family_id": "it-workflow-v1",
+    "difficulty": "intro",
+    "minutes": 30,
+    "primary_domain": "investigate",
+    "csf_functions": [
+      "identify",
+      "detect"
+    ],
+    "surfaces": [
+      "cloud",
+      "api",
+      "identity"
+    ],
+    "assets": "tenant API・IAM・CI・OAuth連携",
+    "business_constraint": "他tenantを保護し顧客処理を維持する",
+    "brief": "架空のIT・SaaS・クラウド組織でCRM連携の大量取得と正規同期を区別する。tenant API・IAM・CI・OAuth連携の合成snapshotを使用。他tenantを保護し顧客処理を維持する。",
+    "inputs_planned": [
+      "evidence.json",
+      "answer.json"
+    ],
+    "deliverables": [
+      "根拠event IDの正確性",
+      "正常対照の維持",
+      "未観測事項を断定しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "it-b",
+    "sector": "it",
+    "stage": "B",
+    "format": "業界シナリオ・修復",
+    "title_ja": "owner認可と過大OAuth scopeを修復する",
+    "status": "specification",
+    "family_id": "it-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 120,
+    "primary_domain": "repair",
+    "csf_functions": [
+      "govern",
+      "protect"
+    ],
+    "surfaces": [
+      "cloud",
+      "api",
+      "identity"
+    ],
+    "assets": "tenant API・IAM・CI・OAuth連携",
+    "business_constraint": "他tenantを保護し顧客処理を維持する",
+    "brief": "架空のIT・SaaS・クラウド組織でowner認可と過大OAuth scopeを修復する。tenant API・IAM・CI・OAuth連携の合成snapshotを使用。他tenantを保護し顧客処理を維持する。",
+    "inputs_planned": [
+      "source/config snapshot",
+      "patch",
+      "regression receipt"
+    ],
+    "deliverables": [
+      "security test通過",
+      "正規業務test通過",
+      "過大権限を追加しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "it-c",
+    "sector": "it",
+    "stage": "C",
+    "format": "運用型・継続復旧",
+    "title_ja": "連携token流出時の失効・影響調査・再接続",
+    "status": "specification",
+    "family_id": "it-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 240,
+    "primary_domain": "detect-respond",
+    "csf_functions": [
+      "govern",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "surfaces": [
+      "cloud",
+      "api",
+      "identity"
+    ],
+    "assets": "tenant API・IAM・CI・OAuth連携",
+    "business_constraint": "他tenantを保護し顧客処理を維持する",
+    "brief": "架空のIT・SaaS・クラウド組織で連携token流出時の失効・影響調査・再接続。tenant API・IAM・CI・OAuth連携の合成snapshotを使用。他tenantを保護し顧客処理を維持する。",
+    "inputs_planned": [
+      "時系列ログ",
+      "対応計画",
+      "復旧検証",
+      "影響通知案"
+    ],
+    "deliverables": [
+      "事前設定SLO/RTO/RPOを満たす",
+      "証拠保全",
+      "誤検知上限内",
+      "残余リスクと引継ぎ"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "nuclear-a",
+    "sector": "nuclear",
+    "stage": "A",
+    "format": "競技型・証拠分析",
+    "title_ja": "監視帳票の出所と改変を調べる",
+    "status": "specification",
+    "family_id": "nuclear-workflow-v1",
+    "difficulty": "intro",
+    "minutes": 30,
+    "primary_domain": "investigate",
+    "csf_functions": [
+      "identify",
+      "detect"
+    ],
+    "surfaces": [
+      "ot",
+      "data",
+      "availability"
+    ],
+    "assets": "訓練用監視・帳票・保守承認",
+    "business_constraint": "物理工程を操作せず安全責任者に判断を戻す",
+    "brief": "架空の原子力・放射性物質関連組織で監視帳票の出所と改変を調べる。訓練用監視・帳票・保守承認の合成snapshotを使用。物理工程を操作せず安全責任者に判断を戻す。",
+    "inputs_planned": [
+      "evidence.json",
+      "answer.json"
+    ],
+    "deliverables": [
+      "根拠event IDの正確性",
+      "正常対照の維持",
+      "未観測事項を断定しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "nuclear-b",
+    "sector": "nuclear",
+    "stage": "B",
+    "format": "業界シナリオ・修復",
+    "title_ja": "文書承認と保守権限の分離を設計する",
+    "status": "specification",
+    "family_id": "nuclear-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 120,
+    "primary_domain": "repair",
+    "csf_functions": [
+      "govern",
+      "protect"
+    ],
+    "surfaces": [
+      "ot",
+      "data",
+      "availability"
+    ],
+    "assets": "訓練用監視・帳票・保守承認",
+    "business_constraint": "物理工程を操作せず安全責任者に判断を戻す",
+    "brief": "架空の原子力・放射性物質関連組織で文書承認と保守権限の分離を設計する。訓練用監視・帳票・保守承認の合成snapshotを使用。物理工程を操作せず安全責任者に判断を戻す。",
+    "inputs_planned": [
+      "source/config snapshot",
+      "patch",
+      "regression receipt"
+    ],
+    "deliverables": [
+      "security test通過",
+      "正規業務test通過",
+      "過大権限を追加しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "nuclear-c",
+    "sector": "nuclear",
+    "stage": "C",
+    "format": "運用型・継続復旧",
+    "title_ja": "監視欠落の証拠を整理し安全連絡を継続する",
+    "status": "specification",
+    "family_id": "nuclear-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 240,
+    "primary_domain": "detect-respond",
+    "csf_functions": [
+      "govern",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "surfaces": [
+      "ot",
+      "data",
+      "availability"
+    ],
+    "assets": "訓練用監視・帳票・保守承認",
+    "business_constraint": "物理工程を操作せず安全責任者に判断を戻す",
+    "brief": "架空の原子力・放射性物質関連組織で監視欠落の証拠を整理し安全連絡を継続する。訓練用監視・帳票・保守承認の合成snapshotを使用。物理工程を操作せず安全責任者に判断を戻す。",
+    "inputs_planned": [
+      "時系列ログ",
+      "対応計画",
+      "復旧検証",
+      "影響通知案"
+    ],
+    "deliverables": [
+      "事前設定SLO/RTO/RPOを満たす",
+      "証拠保全",
+      "誤検知上限内",
+      "残余リスクと引継ぎ"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "transport-a",
+    "sector": "transport",
+    "stage": "A",
+    "format": "競技型・証拠分析",
+    "title_ja": "配送Webhookの再送と改変を区別する",
+    "status": "specification",
+    "family_id": "transport-workflow-v1",
+    "difficulty": "intro",
+    "minutes": 30,
+    "primary_domain": "investigate",
+    "csf_functions": [
+      "identify",
+      "detect"
+    ],
+    "surfaces": [
+      "api",
+      "endpoint",
+      "data"
+    ],
+    "assets": "配送API・倉庫端末・経路情報",
+    "business_constraint": "配送整合性を維持し重複指示を防ぐ",
+    "brief": "架空の輸送・物流組織で配送Webhookの再送と改変を区別する。配送API・倉庫端末・経路情報の合成snapshotを使用。配送整合性を維持し重複指示を防ぐ。",
+    "inputs_planned": [
+      "evidence.json",
+      "answer.json"
+    ],
+    "deliverables": [
+      "根拠event IDの正確性",
+      "正常対照の維持",
+      "未観測事項を断定しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "transport-b",
+    "sector": "transport",
+    "stage": "B",
+    "format": "業界シナリオ・修復",
+    "title_ja": "署名検証とidempotencyを修復する",
+    "status": "specification",
+    "family_id": "transport-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 120,
+    "primary_domain": "repair",
+    "csf_functions": [
+      "govern",
+      "protect"
+    ],
+    "surfaces": [
+      "api",
+      "endpoint",
+      "data"
+    ],
+    "assets": "配送API・倉庫端末・経路情報",
+    "business_constraint": "配送整合性を維持し重複指示を防ぐ",
+    "brief": "架空の輸送・物流組織で署名検証とidempotencyを修復する。配送API・倉庫端末・経路情報の合成snapshotを使用。配送整合性を維持し重複指示を防ぐ。",
+    "inputs_planned": [
+      "source/config snapshot",
+      "patch",
+      "regression receipt"
+    ],
+    "deliverables": [
+      "security test通過",
+      "正規業務test通過",
+      "過大権限を追加しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "transport-c",
+    "sector": "transport",
+    "stage": "C",
+    "format": "運用型・継続復旧",
+    "title_ja": "倉庫端末停止下で再配送を安全に再開する",
+    "status": "specification",
+    "family_id": "transport-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 240,
+    "primary_domain": "detect-respond",
+    "csf_functions": [
+      "govern",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "surfaces": [
+      "api",
+      "endpoint",
+      "data"
+    ],
+    "assets": "配送API・倉庫端末・経路情報",
+    "business_constraint": "配送整合性を維持し重複指示を防ぐ",
+    "brief": "架空の輸送・物流組織で倉庫端末停止下で再配送を安全に再開する。配送API・倉庫端末・経路情報の合成snapshotを使用。配送整合性を維持し重複指示を防ぐ。",
+    "inputs_planned": [
+      "時系列ログ",
+      "対応計画",
+      "復旧検証",
+      "影響通知案"
+    ],
+    "deliverables": [
+      "事前設定SLO/RTO/RPOを満たす",
+      "証拠保全",
+      "誤検知上限内",
+      "残余リスクと引継ぎ"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "water-a",
+    "sector": "water",
+    "stage": "A",
+    "format": "競技型・証拠分析",
+    "title_ja": "水質値の時刻ずれと偽造候補を区別する",
+    "status": "specification",
+    "family_id": "water-workflow-v1",
+    "difficulty": "intro",
+    "minutes": 30,
+    "primary_domain": "investigate",
+    "csf_functions": [
+      "identify",
+      "detect"
+    ],
+    "surfaces": [
+      "ot",
+      "iot",
+      "availability"
+    ],
+    "assets": "水質センサー・historian・保守ID",
+    "business_constraint": "水質安全と独立観測を維持する",
+    "brief": "架空の上下水道組織で水質値の時刻ずれと偽造候補を区別する。水質センサー・historian・保守IDの合成snapshotを使用。水質安全と独立観測を維持する。",
+    "inputs_planned": [
+      "evidence.json",
+      "answer.json"
+    ],
+    "deliverables": [
+      "根拠event IDの正確性",
+      "正常対照の維持",
+      "未観測事項を断定しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "water-b",
+    "sector": "water",
+    "stage": "B",
+    "format": "業界シナリオ・修復",
+    "title_ja": "遠隔監視と制御権限の境界を修復する",
+    "status": "specification",
+    "family_id": "water-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 120,
+    "primary_domain": "repair",
+    "csf_functions": [
+      "govern",
+      "protect"
+    ],
+    "surfaces": [
+      "ot",
+      "iot",
+      "availability"
+    ],
+    "assets": "水質センサー・historian・保守ID",
+    "business_constraint": "水質安全と独立観測を維持する",
+    "brief": "架空の上下水道組織で遠隔監視と制御権限の境界を修復する。水質センサー・historian・保守IDの合成snapshotを使用。水質安全と独立観測を維持する。",
+    "inputs_planned": [
+      "source/config snapshot",
+      "patch",
+      "regression receipt"
+    ],
+    "deliverables": [
+      "security test通過",
+      "正規業務test通過",
+      "過大権限を追加しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "water-c",
+    "sector": "water",
+    "stage": "C",
+    "format": "運用型・継続復旧",
+    "title_ja": "遠隔監視の欠落で安全確認へ切り替える",
+    "status": "specification",
+    "family_id": "water-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 240,
+    "primary_domain": "detect-respond",
+    "csf_functions": [
+      "govern",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "surfaces": [
+      "ot",
+      "iot",
+      "availability"
+    ],
+    "assets": "水質センサー・historian・保守ID",
+    "business_constraint": "水質安全と独立観測を維持する",
+    "brief": "架空の上下水道組織で遠隔監視の欠落で安全確認へ切り替える。水質センサー・historian・保守IDの合成snapshotを使用。水質安全と独立観測を維持する。",
+    "inputs_planned": [
+      "時系列ログ",
+      "対応計画",
+      "復旧検証",
+      "影響通知案"
+    ],
+    "deliverables": [
+      "事前設定SLO/RTO/RPOを満たす",
+      "証拠保全",
+      "誤検知上限内",
+      "残余リスクと引継ぎ"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "education-a",
+    "sector": "education",
+    "stage": "A",
+    "format": "競技型・証拠分析",
+    "title_ja": "研究文書の共有先と同意範囲を調べる",
+    "status": "specification",
+    "family_id": "education-workflow-v1",
+    "difficulty": "intro",
+    "minutes": 30,
+    "primary_domain": "investigate",
+    "csf_functions": [
+      "identify",
+      "detect"
+    ],
+    "surfaces": [
+      "identity",
+      "data",
+      "cloud"
+    ],
+    "assets": "LMS・研究資料・学生アカウント",
+    "business_constraint": "授業と試験を継続し個人データを保護する",
+    "brief": "架空の教育・研究組織で研究文書の共有先と同意範囲を調べる。LMS・研究資料・学生アカウントの合成snapshotを使用。授業と試験を継続し個人データを保護する。",
+    "inputs_planned": [
+      "evidence.json",
+      "answer.json"
+    ],
+    "deliverables": [
+      "根拠event IDの正確性",
+      "正常対照の維持",
+      "未観測事項を断定しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "education-b",
+    "sector": "education",
+    "stage": "B",
+    "format": "業界シナリオ・修復",
+    "title_ja": "LMSのroleと研究用クラウド権限を修復する",
+    "status": "specification",
+    "family_id": "education-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 120,
+    "primary_domain": "repair",
+    "csf_functions": [
+      "govern",
+      "protect"
+    ],
+    "surfaces": [
+      "identity",
+      "data",
+      "cloud"
+    ],
+    "assets": "LMS・研究資料・学生アカウント",
+    "business_constraint": "授業と試験を継続し個人データを保護する",
+    "brief": "架空の教育・研究組織でLMSのroleと研究用クラウド権限を修復する。LMS・研究資料・学生アカウントの合成snapshotを使用。授業と試験を継続し個人データを保護する。",
+    "inputs_planned": [
+      "source/config snapshot",
+      "patch",
+      "regression receipt"
+    ],
+    "deliverables": [
+      "security test通過",
+      "正規業務test通過",
+      "過大権限を追加しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "education-c",
+    "sector": "education",
+    "stage": "C",
+    "format": "運用型・継続復旧",
+    "title_ja": "偽IT窓口によるMFAリセット依頼を処理する",
+    "status": "specification",
+    "family_id": "education-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 240,
+    "primary_domain": "detect-respond",
+    "csf_functions": [
+      "govern",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "surfaces": [
+      "identity",
+      "data",
+      "cloud"
+    ],
+    "assets": "LMS・研究資料・学生アカウント",
+    "business_constraint": "授業と試験を継続し個人データを保護する",
+    "brief": "架空の教育・研究組織で偽IT窓口によるMFAリセット依頼を処理する。LMS・研究資料・学生アカウントの合成snapshotを使用。授業と試験を継続し個人データを保護する。",
+    "inputs_planned": [
+      "時系列ログ",
+      "対応計画",
+      "復旧検証",
+      "影響通知案"
+    ],
+    "deliverables": [
+      "事前設定SLO/RTO/RPOを満たす",
+      "証拠保全",
+      "誤検知上限内",
+      "残余リスクと引継ぎ"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "retail-a",
+    "sector": "retail",
+    "stage": "A",
+    "format": "競技型・証拠分析",
+    "title_ja": "返品APIの越権と正規依頼を区別する",
+    "status": "specification",
+    "family_id": "retail-workflow-v1",
+    "difficulty": "intro",
+    "minutes": 30,
+    "primary_domain": "investigate",
+    "csf_functions": [
+      "identify",
+      "detect"
+    ],
+    "surfaces": [
+      "api",
+      "agent",
+      "data"
+    ],
+    "assets": "注文・返品・商品feed・決済連携",
+    "business_constraint": "注文継続と顧客分離を維持する",
+    "brief": "架空の小売・EC組織で返品APIの越権と正規依頼を区別する。注文・返品・商品feed・決済連携の合成snapshotを使用。注文継続と顧客分離を維持する。",
+    "inputs_planned": [
+      "evidence.json",
+      "answer.json"
+    ],
+    "deliverables": [
+      "根拠event IDの正確性",
+      "正常対照の維持",
+      "未観測事項を断定しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "retail-b",
+    "sector": "retail",
+    "stage": "B",
+    "format": "業界シナリオ・修復",
+    "title_ja": "商品feedのagent権限とWebhookを修復する",
+    "status": "specification",
+    "family_id": "retail-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 120,
+    "primary_domain": "repair",
+    "csf_functions": [
+      "govern",
+      "protect"
+    ],
+    "surfaces": [
+      "api",
+      "agent",
+      "data"
+    ],
+    "assets": "注文・返品・商品feed・決済連携",
+    "business_constraint": "注文継続と顧客分離を維持する",
+    "brief": "架空の小売・EC組織で商品feedのagent権限とWebhookを修復する。注文・返品・商品feed・決済連携の合成snapshotを使用。注文継続と顧客分離を維持する。",
+    "inputs_planned": [
+      "source/config snapshot",
+      "patch",
+      "regression receipt"
+    ],
+    "deliverables": [
+      "security test通過",
+      "正規業務test通過",
+      "過大権限を追加しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "retail-c",
+    "sector": "retail",
+    "stage": "C",
+    "format": "運用型・継続復旧",
+    "title_ja": "クーポン濫用と注文台帳を整合回復する",
+    "status": "specification",
+    "family_id": "retail-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 240,
+    "primary_domain": "detect-respond",
+    "csf_functions": [
+      "govern",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "surfaces": [
+      "api",
+      "agent",
+      "data"
+    ],
+    "assets": "注文・返品・商品feed・決済連携",
+    "business_constraint": "注文継続と顧客分離を維持する",
+    "brief": "架空の小売・EC組織でクーポン濫用と注文台帳を整合回復する。注文・返品・商品feed・決済連携の合成snapshotを使用。注文継続と顧客分離を維持する。",
+    "inputs_planned": [
+      "時系列ログ",
+      "対応計画",
+      "復旧検証",
+      "影響通知案"
+    ],
+    "deliverables": [
+      "事前設定SLO/RTO/RPOを満たす",
+      "証拠保全",
+      "誤検知上限内",
+      "残余リスクと引継ぎ"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "media-a",
+    "sector": "media",
+    "stage": "A",
+    "format": "競技型・証拠分析",
+    "title_ja": "生成映像の開示・同意・出所を判定する",
+    "status": "specification",
+    "family_id": "media-workflow-v1",
+    "difficulty": "intro",
+    "minutes": 30,
+    "primary_domain": "investigate",
+    "csf_functions": [
+      "identify",
+      "detect"
+    ],
+    "surfaces": [
+      "synthetic-media",
+      "data",
+      "identity"
+    ],
+    "assets": "素材・配信・広告アカウント",
+    "business_constraint": "出所確認と訂正履歴を保持する",
+    "brief": "架空のメディア・広告組織で生成映像の開示・同意・出所を判定する。素材・配信・広告アカウントの合成snapshotを使用。出所確認と訂正履歴を保持する。",
+    "inputs_planned": [
+      "evidence.json",
+      "answer.json"
+    ],
+    "deliverables": [
+      "根拠event IDの正確性",
+      "正常対照の維持",
+      "未観測事項を断定しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "media-b",
+    "sector": "media",
+    "stage": "B",
+    "format": "業界シナリオ・修復",
+    "title_ja": "素材の使用許可と配信roleを修復する",
+    "status": "specification",
+    "family_id": "media-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 120,
+    "primary_domain": "repair",
+    "csf_functions": [
+      "govern",
+      "protect"
+    ],
+    "surfaces": [
+      "synthetic-media",
+      "data",
+      "identity"
+    ],
+    "assets": "素材・配信・広告アカウント",
+    "business_constraint": "出所確認と訂正履歴を保持する",
+    "brief": "架空のメディア・広告組織で素材の使用許可と配信roleを修復する。素材・配信・広告アカウントの合成snapshotを使用。出所確認と訂正履歴を保持する。",
+    "inputs_planned": [
+      "source/config snapshot",
+      "patch",
+      "regression receipt"
+    ],
+    "deliverables": [
+      "security test通過",
+      "正規業務test通過",
+      "過大権限を追加しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "media-c",
+    "sector": "media",
+    "stage": "C",
+    "format": "運用型・継続復旧",
+    "title_ja": "偽映像の公開停止と訂正の証跡を残す",
+    "status": "specification",
+    "family_id": "media-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 240,
+    "primary_domain": "detect-respond",
+    "csf_functions": [
+      "govern",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "surfaces": [
+      "synthetic-media",
+      "data",
+      "identity"
+    ],
+    "assets": "素材・配信・広告アカウント",
+    "business_constraint": "出所確認と訂正履歴を保持する",
+    "brief": "架空のメディア・広告組織で偽映像の公開停止と訂正の証跡を残す。素材・配信・広告アカウントの合成snapshotを使用。出所確認と訂正履歴を保持する。",
+    "inputs_planned": [
+      "時系列ログ",
+      "対応計画",
+      "復旧検証",
+      "影響通知案"
+    ],
+    "deliverables": [
+      "事前設定SLO/RTO/RPOを満たす",
+      "証拠保全",
+      "誤検知上限内",
+      "残余リスクと引継ぎ"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "hospitality-a",
+    "sector": "hospitality",
+    "stage": "A",
+    "format": "競技型・証拠分析",
+    "title_ja": "偽スタッフの予約情報要求を確認する",
+    "status": "specification",
+    "family_id": "hospitality-workflow-v1",
+    "difficulty": "intro",
+    "minutes": 30,
+    "primary_domain": "investigate",
+    "csf_functions": [
+      "identify",
+      "detect"
+    ],
+    "surfaces": [
+      "synthetic-media",
+      "api",
+      "data"
+    ],
+    "assets": "予約・本人確認・委託call center",
+    "business_constraint": "予約を維持し本人確認データを最小化する",
+    "brief": "架空の宿泊・旅行組織で偽スタッフの予約情報要求を確認する。予約・本人確認・委託call centerの合成snapshotを使用。予約を維持し本人確認データを最小化する。",
+    "inputs_planned": [
+      "evidence.json",
+      "answer.json"
+    ],
+    "deliverables": [
+      "根拠event IDの正確性",
+      "正常対照の維持",
+      "未観測事項を断定しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "hospitality-b",
+    "sector": "hospitality",
+    "stage": "B",
+    "format": "業界シナリオ・修復",
+    "title_ja": "予約変更の本人確認とtenant境界を修復する",
+    "status": "specification",
+    "family_id": "hospitality-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 120,
+    "primary_domain": "repair",
+    "csf_functions": [
+      "govern",
+      "protect"
+    ],
+    "surfaces": [
+      "synthetic-media",
+      "api",
+      "data"
+    ],
+    "assets": "予約・本人確認・委託call center",
+    "business_constraint": "予約を維持し本人確認データを最小化する",
+    "brief": "架空の宿泊・旅行組織で予約変更の本人確認とtenant境界を修復する。予約・本人確認・委託call centerの合成snapshotを使用。予約を維持し本人確認データを最小化する。",
+    "inputs_planned": [
+      "source/config snapshot",
+      "patch",
+      "regression receipt"
+    ],
+    "deliverables": [
+      "security test通過",
+      "正規業務test通過",
+      "過大権限を追加しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "hospitality-c",
+    "sector": "hospitality",
+    "stage": "C",
+    "format": "運用型・継続復旧",
+    "title_ja": "AI通話を通じた個人情報取得依頼に対応する",
+    "status": "specification",
+    "family_id": "hospitality-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 240,
+    "primary_domain": "detect-respond",
+    "csf_functions": [
+      "govern",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "surfaces": [
+      "synthetic-media",
+      "api",
+      "data"
+    ],
+    "assets": "予約・本人確認・委託call center",
+    "business_constraint": "予約を維持し本人確認データを最小化する",
+    "brief": "架空の宿泊・旅行組織でAI通話を通じた個人情報取得依頼に対応する。予約・本人確認・委託call centerの合成snapshotを使用。予約を維持し本人確認データを最小化する。",
+    "inputs_planned": [
+      "時系列ログ",
+      "対応計画",
+      "復旧検証",
+      "影響通知案"
+    ],
+    "deliverables": [
+      "事前設定SLO/RTO/RPOを満たす",
+      "証拠保全",
+      "誤検知上限内",
+      "残余リスクと引継ぎ"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "professional-a",
+    "sector": "professional",
+    "stage": "A",
+    "format": "競技型・証拠分析",
+    "title_ja": "請求書RAGの指示混入を特定する",
+    "status": "specification",
+    "family_id": "professional-workflow-v1",
+    "difficulty": "intro",
+    "minutes": 30,
+    "primary_domain": "investigate",
+    "csf_functions": [
+      "identify",
+      "detect"
+    ],
+    "surfaces": [
+      "agent",
+      "data",
+      "synthetic-media"
+    ],
+    "assets": "案件資料・請求書・顧客委任",
+    "business_constraint": "守秘と顧客別境界を維持する",
+    "brief": "架空の法律・会計・専門サービス組織で請求書RAGの指示混入を特定する。案件資料・請求書・顧客委任の合成snapshotを使用。守秘と顧客別境界を維持する。",
+    "inputs_planned": [
+      "evidence.json",
+      "answer.json"
+    ],
+    "deliverables": [
+      "根拠event IDの正確性",
+      "正常対照の維持",
+      "未観測事項を断定しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "professional-b",
+    "sector": "professional",
+    "stage": "B",
+    "format": "業界シナリオ・修復",
+    "title_ja": "agentの案件scopeと送信権限を修復する",
+    "status": "specification",
+    "family_id": "professional-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 120,
+    "primary_domain": "repair",
+    "csf_functions": [
+      "govern",
+      "protect"
+    ],
+    "surfaces": [
+      "agent",
+      "data",
+      "synthetic-media"
+    ],
+    "assets": "案件資料・請求書・顧客委任",
+    "business_constraint": "守秘と顧客別境界を維持する",
+    "brief": "架空の法律・会計・専門サービス組織でagentの案件scopeと送信権限を修復する。案件資料・請求書・顧客委任の合成snapshotを使用。守秘と顧客別境界を維持する。",
+    "inputs_planned": [
+      "source/config snapshot",
+      "patch",
+      "regression receipt"
+    ],
+    "deliverables": [
+      "security test通過",
+      "正規業務test通過",
+      "過大権限を追加しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "professional-c",
+    "sector": "professional",
+    "stage": "C",
+    "format": "運用型・継続復旧",
+    "title_ja": "偽顧客による案件資料の送付要求を処理する",
+    "status": "specification",
+    "family_id": "professional-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 240,
+    "primary_domain": "detect-respond",
+    "csf_functions": [
+      "govern",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "surfaces": [
+      "agent",
+      "data",
+      "synthetic-media"
+    ],
+    "assets": "案件資料・請求書・顧客委任",
+    "business_constraint": "守秘と顧客別境界を維持する",
+    "brief": "架空の法律・会計・専門サービス組織で偽顧客による案件資料の送付要求を処理する。案件資料・請求書・顧客委任の合成snapshotを使用。守秘と顧客別境界を維持する。",
+    "inputs_planned": [
+      "時系列ログ",
+      "対応計画",
+      "復旧検証",
+      "影響通知案"
+    ],
+    "deliverables": [
+      "事前設定SLO/RTO/RPOを満たす",
+      "証拠保全",
+      "誤検知上限内",
+      "残余リスクと引継ぎ"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "realestate-a",
+    "sector": "realestate",
+    "stage": "A",
+    "format": "競技型・証拠分析",
+    "title_ja": "仲介者なりすましによる送金変更を確認する",
+    "status": "specification",
+    "family_id": "realestate-workflow-v1",
+    "difficulty": "intro",
+    "minutes": 30,
+    "primary_domain": "investigate",
+    "csf_functions": [
+      "identify",
+      "detect"
+    ],
+    "surfaces": [
+      "synthetic-media",
+      "data",
+      "ot"
+    ],
+    "assets": "図面・BIM・取引承認・BMS",
+    "business_constraint": "取引相手確認と現場安全を維持する",
+    "brief": "架空の不動産・建設組織で仲介者なりすましによる送金変更を確認する。図面・BIM・取引承認・BMSの合成snapshotを使用。取引相手確認と現場安全を維持する。",
+    "inputs_planned": [
+      "evidence.json",
+      "answer.json"
+    ],
+    "deliverables": [
+      "根拠event IDの正確性",
+      "正常対照の維持",
+      "未観測事項を断定しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "realestate-b",
+    "sector": "realestate",
+    "stage": "B",
+    "format": "業界シナリオ・修復",
+    "title_ja": "協力会社の図面権限と変更承認を修復する",
+    "status": "specification",
+    "family_id": "realestate-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 120,
+    "primary_domain": "repair",
+    "csf_functions": [
+      "govern",
+      "protect"
+    ],
+    "surfaces": [
+      "synthetic-media",
+      "data",
+      "ot"
+    ],
+    "assets": "図面・BIM・取引承認・BMS",
+    "business_constraint": "取引相手確認と現場安全を維持する",
+    "brief": "架空の不動産・建設組織で協力会社の図面権限と変更承認を修復する。図面・BIM・取引承認・BMSの合成snapshotを使用。取引相手確認と現場安全を維持する。",
+    "inputs_planned": [
+      "source/config snapshot",
+      "patch",
+      "regression receipt"
+    ],
+    "deliverables": [
+      "security test通過",
+      "正規業務test通過",
+      "過大権限を追加しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "realestate-c",
+    "sector": "realestate",
+    "stage": "C",
+    "format": "運用型・継続復旧",
+    "title_ja": "共有図面流出と取引停止の影響を調査する",
+    "status": "specification",
+    "family_id": "realestate-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 240,
+    "primary_domain": "detect-respond",
+    "csf_functions": [
+      "govern",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "surfaces": [
+      "synthetic-media",
+      "data",
+      "ot"
+    ],
+    "assets": "図面・BIM・取引承認・BMS",
+    "business_constraint": "取引相手確認と現場安全を維持する",
+    "brief": "架空の不動産・建設組織で共有図面流出と取引停止の影響を調査する。図面・BIM・取引承認・BMSの合成snapshotを使用。取引相手確認と現場安全を維持する。",
+    "inputs_planned": [
+      "時系列ログ",
+      "対応計画",
+      "復旧検証",
+      "影響通知案"
+    ],
+    "deliverables": [
+      "事前設定SLO/RTO/RPOを満たす",
+      "証拠保全",
+      "誤検知上限内",
+      "残余リスクと引継ぎ"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "crypto-a",
+    "sector": "crypto",
+    "stage": "A",
+    "format": "競技型・証拠分析",
+    "title_ja": "署名内容と画面上の承認文の矛盾を調べる",
+    "status": "specification",
+    "family_id": "crypto-workflow-v1",
+    "difficulty": "intro",
+    "minutes": 30,
+    "primary_domain": "investigate",
+    "csf_functions": [
+      "identify",
+      "detect"
+    ],
+    "surfaces": [
+      "data",
+      "identity",
+      "api"
+    ],
+    "assets": "署名要求・wallet承認・取引台帳",
+    "business_constraint": "鍵を公開せず未承認の取引を拒否する",
+    "brief": "架空の暗号資産・Web3組織で署名内容と画面上の承認文の矛盾を調べる。署名要求・wallet承認・取引台帳の合成snapshotを使用。鍵を公開せず未承認の取引を拒否する。",
+    "inputs_planned": [
+      "evidence.json",
+      "answer.json"
+    ],
+    "deliverables": [
+      "根拠event IDの正確性",
+      "正常対照の維持",
+      "未観測事項を断定しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "crypto-b",
+    "sector": "crypto",
+    "stage": "B",
+    "format": "業界シナリオ・修復",
+    "title_ja": "署名と取引意図の結び付けを設計する",
+    "status": "specification",
+    "family_id": "crypto-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 120,
+    "primary_domain": "repair",
+    "csf_functions": [
+      "govern",
+      "protect"
+    ],
+    "surfaces": [
+      "data",
+      "identity",
+      "api"
+    ],
+    "assets": "署名要求・wallet承認・取引台帳",
+    "business_constraint": "鍵を公開せず未承認の取引を拒否する",
+    "brief": "架空の暗号資産・Web3組織で署名と取引意図の結び付けを設計する。署名要求・wallet承認・取引台帳の合成snapshotを使用。鍵を公開せず未承認の取引を拒否する。",
+    "inputs_planned": [
+      "source/config snapshot",
+      "patch",
+      "regression receipt"
+    ],
+    "deliverables": [
+      "security test通過",
+      "正規業務test通過",
+      "過大権限を追加しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "crypto-c",
+    "sector": "crypto",
+    "stage": "C",
+    "format": "運用型・継続復旧",
+    "title_ja": "承認経路改変時の取引保留と台帳照合",
+    "status": "specification",
+    "family_id": "crypto-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 240,
+    "primary_domain": "detect-respond",
+    "csf_functions": [
+      "govern",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "surfaces": [
+      "data",
+      "identity",
+      "api"
+    ],
+    "assets": "署名要求・wallet承認・取引台帳",
+    "business_constraint": "鍵を公開せず未承認の取引を拒否する",
+    "brief": "架空の暗号資産・Web3組織で承認経路改変時の取引保留と台帳照合。署名要求・wallet承認・取引台帳の合成snapshotを使用。鍵を公開せず未承認の取引を拒否する。",
+    "inputs_planned": [
+      "時系列ログ",
+      "対応計画",
+      "復旧検証",
+      "影響通知案"
+    ],
+    "deliverables": [
+      "事前設定SLO/RTO/RPOを満たす",
+      "証拠保全",
+      "誤検知上限内",
+      "残余リスクと引継ぎ"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "ai-services-a",
+    "sector": "ai-services",
+    "stage": "A",
+    "format": "競技型・証拠分析",
+    "title_ja": "replicaの同意撤回と使用継続を検出する",
+    "status": "specification",
+    "family_id": "ai-services-workflow-v1",
+    "difficulty": "intro",
+    "minutes": 30,
+    "primary_domain": "investigate",
+    "csf_functions": [
+      "identify",
+      "detect"
+    ],
+    "surfaces": [
+      "synthetic-media",
+      "agent",
+      "privacy"
+    ],
+    "assets": "replica同意・persona・tool・録画",
+    "business_constraint": "AI開示と同意撤回を維持し権限を外部で制御する",
+    "brief": "架空のAI動画・agentサービス組織でreplicaの同意撤回と使用継続を検出する。replica同意・persona・tool・録画の合成snapshotを使用。AI開示と同意撤回を維持し権限を外部で制御する。",
+    "inputs_planned": [
+      "evidence.json",
+      "answer.json"
+    ],
+    "deliverables": [
+      "根拠event IDの正確性",
+      "正常対照の維持",
+      "未観測事項を断定しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "ai-services-b",
+    "sector": "ai-services",
+    "stage": "B",
+    "format": "業界シナリオ・修復",
+    "title_ja": "不信文書とtool呼出しのauthority境界を修復する",
+    "status": "specification",
+    "family_id": "ai-services-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 120,
+    "primary_domain": "repair",
+    "csf_functions": [
+      "govern",
+      "protect"
+    ],
+    "surfaces": [
+      "synthetic-media",
+      "agent",
+      "privacy"
+    ],
+    "assets": "replica同意・persona・tool・録画",
+    "business_constraint": "AI開示と同意撤回を維持し権限を外部で制御する",
+    "brief": "架空のAI動画・agentサービス組織で不信文書とtool呼出しのauthority境界を修復する。replica同意・persona・tool・録画の合成snapshotを使用。AI開示と同意撤回を維持し権限を外部で制御する。",
+    "inputs_planned": [
+      "source/config snapshot",
+      "patch",
+      "regression receipt"
+    ],
+    "deliverables": [
+      "security test通過",
+      "正規業務test通過",
+      "過大権限を追加しない"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "ai-services-c",
+    "sector": "ai-services",
+    "stage": "C",
+    "format": "運用型・継続復旧",
+    "title_ja": "偽本人通話とtool操作要求を分離して対応する",
+    "status": "specification",
+    "family_id": "ai-services-workflow-v1",
+    "difficulty": "advanced",
+    "minutes": 240,
+    "primary_domain": "detect-respond",
+    "csf_functions": [
+      "govern",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "surfaces": [
+      "synthetic-media",
+      "agent",
+      "privacy"
+    ],
+    "assets": "replica同意・persona・tool・録画",
+    "business_constraint": "AI開示と同意撤回を維持し権限を外部で制御する",
+    "brief": "架空のAI動画・agentサービス組織で偽本人通話とtool操作要求を分離して対応する。replica同意・persona・tool・録画の合成snapshotを使用。AI開示と同意撤回を維持し権限を外部で制御する。",
+    "inputs_planned": [
+      "時系列ログ",
+      "対応計画",
+      "復旧検証",
+      "影響通知案"
+    ],
+    "deliverables": [
+      "事前設定SLO/RTO/RPOを満たす",
+      "証拠保全",
+      "誤検知上限内",
+      "残余リスクと引継ぎ"
+    ],
+    "negative_controls": [
+      "事前承認済みの通常業務",
+      "ログ欠落で判断不能な事例"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "dependency_note": "同一業務のA/B/Cは同じfamily。72枚を独立72標本とは数えない。",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03"
+    ]
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "decisions": {
+    "E01": "hold",
+    "E02": "allow",
+    "E03": "allow",
+    "E04": "escalate"
+  }
+}

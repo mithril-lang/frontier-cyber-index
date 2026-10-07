@@ -1,0 +1,41 @@
+{
+  "id": "it",
+  "title": "SaaS: tenant境界とOAuth scope",
+  "synthetic": true,
+  "policy": "認証principal由来tenantとobject ownerが一致し、有効scope内なら許可。失効grantは拒否。",
+  "surfaces": [
+    "api",
+    "cloud",
+    "identity"
+  ],
+  "actions": [
+    "allow",
+    "deny",
+    "hold",
+    "unknown",
+    "escalate",
+    "deduplicate"
+  ],
+  "events": [
+    {
+      "id": "I01",
+      "time": "11:00",
+      "observation": "principal tenant=A、object owner=A、read scope有効。"
+    },
+    {
+      "id": "I02",
+      "time": "11:01",
+      "observation": "principal tenant=A、body内tenant=B、object owner=B、read scope。"
+    },
+    {
+      "id": "I03",
+      "time": "11:02",
+      "observation": "tenant一致、export要求、scope=readのみ。"
+    },
+    {
+      "id": "I04",
+      "time": "11:03",
+      "observation": "tenant一致、read要求、grantは11:02に失効済み。"
+    }
+  ]
+}

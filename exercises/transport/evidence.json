@@ -1,0 +1,40 @@
+{
+  "id": "transport",
+  "title": "物流: Webhookの改変と再送",
+  "synthetic": true,
+  "policy": "署名有効かつ未処理event IDなら処理。処理済みIDは再適用せず記録。無効署名は拒否。",
+  "surfaces": [
+    "api",
+    "data"
+  ],
+  "actions": [
+    "allow",
+    "deny",
+    "hold",
+    "unknown",
+    "escalate",
+    "deduplicate"
+  ],
+  "events": [
+    {
+      "id": "L01",
+      "time": "08:00",
+      "observation": "event=E1、署名有効、未処理。配送先変更は既存承認と一致。"
+    },
+    {
+      "id": "L02",
+      "time": "08:02",
+      "observation": "event=E1、署名有効、08:00に処理済み。"
+    },
+    {
+      "id": "L03",
+      "time": "08:03",
+      "observation": "event=E2、署名無効、配送先変更。"
+    },
+    {
+      "id": "L04",
+      "time": "08:04",
+      "observation": "event=E3、署名有効、未処理、既存承認と一致。"
+    }
+  ]
+}

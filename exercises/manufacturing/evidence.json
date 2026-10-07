@@ -1,0 +1,41 @@
+{
+  "id": "manufacturing",
+  "title": "製造: 保守期限と工程安全",
+  "synthetic": true,
+  "policy": "保守接続はasset・期間・承認IDが一致する場合のみ許可。制御変更は安全責任者へ。監視を停止しない。",
+  "surfaces": [
+    "ot",
+    "identity",
+    "endpoint"
+  ],
+  "actions": [
+    "allow",
+    "deny",
+    "hold",
+    "unknown",
+    "escalate",
+    "deduplicate"
+  ],
+  "events": [
+    {
+      "id": "M01",
+      "time": "14:00",
+      "observation": "保守asset A、許可期間13:00–15:00、承認IDあり、読取操作。"
+    },
+    {
+      "id": "M02",
+      "time": "14:02",
+      "observation": "保守asset B、grantはA限定、接続要求。"
+    },
+    {
+      "id": "M03",
+      "time": "16:00",
+      "observation": "asset Aへ接続、grantの有効期限15:00。"
+    },
+    {
+      "id": "M04",
+      "time": "14:04",
+      "observation": "asset Aの制御値変更を要求。保守grantは読取専用。安全責任者判断が必要。"
+    }
+  ]
+}

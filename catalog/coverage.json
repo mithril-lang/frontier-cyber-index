@@ -1,0 +1,55 @@
+{
+  "as_of": "2026-10-07",
+  "sector_specs": {
+    "covered": 24,
+    "total": 24
+  },
+  "surface_specs": {
+    "covered": 18,
+    "total": 18
+  },
+  "industry_scenario_specs": 72,
+  "cross_industry_specs": 18,
+  "declared_sector_surface_cells": 72,
+  "possible_sector_surface_cells": 432,
+  "offline_exercises": 8,
+  "offline_decisions": 32,
+  "offline_sector_coverage": {
+    "covered": 8,
+    "total": 24
+  },
+  "offline_surface_coverage": {
+    "covered": 10,
+    "total": 18
+  },
+  "verified_frontier_runs": 0,
+  "missing_offline_sectors": [
+    "agriculture",
+    "chemical",
+    "commercial",
+    "communications",
+    "crypto",
+    "dams",
+    "defense",
+    "emergency",
+    "energy",
+    "government",
+    "hospitality",
+    "nuclear",
+    "professional",
+    "realestate",
+    "retail",
+    "water"
+  ],
+  "missing_offline_surfaces": [
+    "binary",
+    "code",
+    "containers",
+    "crypto",
+    "iot",
+    "mobile",
+    "network",
+    "supply-chain"
+  ],
+  "qualification": "design-and-educational-fixtures-only"
+}

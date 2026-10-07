@@ -1,0 +1,74 @@
+[
+  {
+    "id": "code",
+    "name": "Code/SAST"
+  },
+  {
+    "id": "binary",
+    "name": "Binary/RE"
+  },
+  {
+    "id": "api",
+    "name": "Web/API"
+  },
+  {
+    "id": "identity",
+    "name": "Identity"
+  },
+  {
+    "id": "cloud",
+    "name": "Cloud"
+  },
+  {
+    "id": "containers",
+    "name": "Containers"
+  },
+  {
+    "id": "supply-chain",
+    "name": "Supply chain"
+  },
+  {
+    "id": "endpoint",
+    "name": "Endpoint"
+  },
+  {
+    "id": "network",
+    "name": "Network/edge"
+  },
+  {
+    "id": "ot",
+    "name": "OT"
+  },
+  {
+    "id": "iot",
+    "name": "IoT/firmware"
+  },
+  {
+    "id": "mobile",
+    "name": "Mobile/wireless"
+  },
+  {
+    "id": "synthetic-media",
+    "name": "Synthetic media"
+  },
+  {
+    "id": "agent",
+    "name": "Agent/RAG/MCP"
+  },
+  {
+    "id": "data",
+    "name": "Data/integrity"
+  },
+  {
+    "id": "availability",
+    "name": "Availability/recovery"
+  },
+  {
+    "id": "crypto",
+    "name": "Cryptography/transaction"
+  },
+  {
+    "id": "privacy",
+    "name": "Privacy/governance"
+  }
+]

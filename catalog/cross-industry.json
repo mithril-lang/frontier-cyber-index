@@ -1,0 +1,640 @@
+[
+  {
+    "id": "X-code",
+    "sector": "cross-industry",
+    "surfaces": [
+      "code"
+    ],
+    "title_ja": "source inputからsinkまで追い、候補を一つに絞り修正",
+    "status": "specification",
+    "family_id": "cross-code-v1",
+    "primary_domain": "discover",
+    "minutes": 120,
+    "csf_functions": [
+      "govern",
+      "identify",
+      "protect",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "inputs_planned": [
+      "source",
+      "security regression"
+    ],
+    "deliverables": [
+      "独立検証receipt",
+      "正常対照の結果",
+      "coverage/gaps"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "source_ids": [
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "X-binary",
+    "sector": "cross-industry",
+    "surfaces": [
+      "binary"
+    ],
+    "title_ja": "架空parserのcrashを解析し修正前後を比較",
+    "status": "specification",
+    "family_id": "cross-binary-v1",
+    "primary_domain": "validate",
+    "minutes": 120,
+    "csf_functions": [
+      "govern",
+      "identify",
+      "protect",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "inputs_planned": [
+      "binary",
+      "crash trace",
+      "patched binary"
+    ],
+    "deliverables": [
+      "独立検証receipt",
+      "正常対照の結果",
+      "coverage/gaps"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "source_ids": [
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "X-api",
+    "sector": "cross-industry",
+    "surfaces": [
+      "api"
+    ],
+    "title_ja": "tenant認可・再送・raceを修復し正常対照を通す",
+    "status": "specification",
+    "family_id": "cross-api-v1",
+    "primary_domain": "repair",
+    "minutes": 120,
+    "csf_functions": [
+      "govern",
+      "identify",
+      "protect",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "inputs_planned": [
+      "API source",
+      "contract tests"
+    ],
+    "deliverables": [
+      "独立検証receipt",
+      "正常対照の結果",
+      "coverage/gaps"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "source_ids": [
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "X-identity",
+    "sector": "cross-industry",
+    "surfaces": [
+      "identity"
+    ],
+    "title_ja": "回復・委任・失効と正当な利用を検証",
+    "status": "specification",
+    "family_id": "cross-identity-v1",
+    "primary_domain": "cloud-identity",
+    "minutes": 120,
+    "csf_functions": [
+      "govern",
+      "identify",
+      "protect",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "inputs_planned": [
+      "principal/grant snapshots"
+    ],
+    "deliverables": [
+      "独立検証receipt",
+      "正常対照の結果",
+      "coverage/gaps"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "source_ids": [
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "X-cloud",
+    "sector": "cross-industry",
+    "surfaces": [
+      "cloud"
+    ],
+    "title_ja": "cross-account到達経路を特定し最小権限に修復",
+    "status": "specification",
+    "family_id": "cross-cloud-v1",
+    "primary_domain": "cloud-identity",
+    "minutes": 120,
+    "csf_functions": [
+      "govern",
+      "identify",
+      "protect",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "inputs_planned": [
+      "IAM graph",
+      "policy",
+      "normal workloads"
+    ],
+    "deliverables": [
+      "独立検証receipt",
+      "正常対照の結果",
+      "coverage/gaps"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "source_ids": [
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "X-containers",
+    "sector": "cross-industry",
+    "surfaces": [
+      "containers"
+    ],
+    "title_ja": "固定imageとK8s admissionを検証しworkload維持",
+    "status": "specification",
+    "family_id": "cross-containers-v1",
+    "primary_domain": "repair",
+    "minutes": 120,
+    "csf_functions": [
+      "govern",
+      "identify",
+      "protect",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "inputs_planned": [
+      "OCI digest",
+      "K8s manifest",
+      "normal workload"
+    ],
+    "deliverables": [
+      "独立検証receipt",
+      "正常対照の結果",
+      "coverage/gaps"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "source_ids": [
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "X-supply-chain",
+    "sector": "cross-industry",
+    "surfaces": [
+      "supply-chain"
+    ],
+    "title_ja": "CI provenanceと依存更新を検証し改変を判定",
+    "status": "specification",
+    "family_id": "cross-supply-chain-v1",
+    "primary_domain": "validate",
+    "minutes": 120,
+    "csf_functions": [
+      "govern",
+      "identify",
+      "protect",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "inputs_planned": [
+      "build attestation",
+      "SBOM",
+      "VEX"
+    ],
+    "deliverables": [
+      "独立検証receipt",
+      "正常対照の結果",
+      "coverage/gaps"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "source_ids": [
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "X-endpoint",
+    "sector": "cross-industry",
+    "surfaces": [
+      "endpoint"
+    ],
+    "title_ja": "process/logの時系列から侵害範囲と復旧を判断",
+    "status": "specification",
+    "family_id": "cross-endpoint-v1",
+    "primary_domain": "detect-respond",
+    "minutes": 120,
+    "csf_functions": [
+      "govern",
+      "identify",
+      "protect",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "inputs_planned": [
+      "synthetic process logs",
+      "restore checks"
+    ],
+    "deliverables": [
+      "独立検証receipt",
+      "正常対照の結果",
+      "coverage/gaps"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "source_ids": [
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "X-network",
+    "sector": "cross-industry",
+    "surfaces": [
+      "network"
+    ],
+    "title_ja": "管理planeとDNS/VPNを独立観測で調査",
+    "status": "specification",
+    "family_id": "cross-network-v1",
+    "primary_domain": "investigate",
+    "minutes": 120,
+    "csf_functions": [
+      "govern",
+      "identify",
+      "protect",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "inputs_planned": [
+      "network records",
+      "config",
+      "change approvals"
+    ],
+    "deliverables": [
+      "独立検証receipt",
+      "正常対照の結果",
+      "coverage/gaps"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "source_ids": [
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "X-ot",
+    "sector": "cross-industry",
+    "surfaces": [
+      "ot"
+    ],
+    "title_ja": "twin上で監視欠落時の業務継続と責任者を判断",
+    "status": "specification",
+    "family_id": "cross-ot-v1",
+    "primary_domain": "detect-respond",
+    "minutes": 120,
+    "csf_functions": [
+      "govern",
+      "identify",
+      "protect",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "inputs_planned": [
+      "twin observations",
+      "safety constraints"
+    ],
+    "deliverables": [
+      "独立検証receipt",
+      "正常対照の結果",
+      "coverage/gaps"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "source_ids": [
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "X-iot",
+    "sector": "cross-industry",
+    "surfaces": [
+      "iot"
+    ],
+    "title_ja": "更新署名とsensorの故障・改変候補を判別",
+    "status": "specification",
+    "family_id": "cross-iot-v1",
+    "primary_domain": "validate",
+    "minutes": 120,
+    "csf_functions": [
+      "govern",
+      "identify",
+      "protect",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "inputs_planned": [
+      "firmware metadata",
+      "sensor records"
+    ],
+    "deliverables": [
+      "独立検証receipt",
+      "正常対照の結果",
+      "coverage/gaps"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "source_ids": [
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "X-mobile",
+    "sector": "cross-industry",
+    "surfaces": [
+      "mobile"
+    ],
+    "title_ja": "emulatorでapp権限と端末連携の境界を検証",
+    "status": "specification",
+    "family_id": "cross-mobile-v1",
+    "primary_domain": "discover",
+    "minutes": 120,
+    "csf_functions": [
+      "govern",
+      "identify",
+      "protect",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "inputs_planned": [
+      "mobile app snapshot",
+      "recorded radio data"
+    ],
+    "deliverables": [
+      "独立検証receipt",
+      "正常対照の結果",
+      "coverage/gaps"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "source_ids": [
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "X-synthetic-media",
+    "sector": "cross-industry",
+    "surfaces": [
+      "synthetic-media"
+    ],
+    "title_ja": "同意・開示・来歴と本人確認を個別判断",
+    "status": "specification",
+    "family_id": "cross-synthetic-media-v1",
+    "primary_domain": "investigate",
+    "minutes": 120,
+    "csf_functions": [
+      "govern",
+      "identify",
+      "protect",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "inputs_planned": [
+      "consent ledger",
+      "disclosure",
+      "provenance"
+    ],
+    "deliverables": [
+      "独立検証receipt",
+      "正常対照の結果",
+      "coverage/gaps"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "source_ids": [
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "X-agent",
+    "sector": "cross-industry",
+    "surfaces": [
+      "agent"
+    ],
+    "title_ja": "不信文書/記憶/tool応答からの越権を阻止し正規処理を維持",
+    "status": "specification",
+    "family_id": "cross-agent-v1",
+    "primary_domain": "validate",
+    "minutes": 120,
+    "csf_functions": [
+      "govern",
+      "identify",
+      "protect",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "inputs_planned": [
+      "input provenance",
+      "grants",
+      "tool events"
+    ],
+    "deliverables": [
+      "独立検証receipt",
+      "正常対照の結果",
+      "coverage/gaps"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "source_ids": [
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "X-data",
+    "sector": "cross-industry",
+    "surfaces": [
+      "data"
+    ],
+    "title_ja": "流出候補と改変範囲を証拠から限定",
+    "status": "specification",
+    "family_id": "cross-data-v1",
+    "primary_domain": "investigate",
+    "minutes": 120,
+    "csf_functions": [
+      "govern",
+      "identify",
+      "protect",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "inputs_planned": [
+      "data lineage",
+      "read/export logs"
+    ],
+    "deliverables": [
+      "独立検証receipt",
+      "正常対照の結果",
+      "coverage/gaps"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "source_ids": [
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "X-availability",
+    "sector": "cross-industry",
+    "surfaces": [
+      "availability"
+    ],
+    "title_ja": "復旧検証・SLO・RTO/RPOと台帳整合性を確認",
+    "status": "specification",
+    "family_id": "cross-availability-v1",
+    "primary_domain": "detect-respond",
+    "minutes": 120,
+    "csf_functions": [
+      "govern",
+      "identify",
+      "protect",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "inputs_planned": [
+      "backup",
+      "restore log",
+      "transaction ledger"
+    ],
+    "deliverables": [
+      "独立検証receipt",
+      "正常対照の結果",
+      "coverage/gaps"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "source_ids": [
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "X-crypto",
+    "sector": "cross-industry",
+    "surfaces": [
+      "crypto"
+    ],
+    "title_ja": "署名内容と承認意図を照合しreplayを拒否",
+    "status": "specification",
+    "family_id": "cross-crypto-v1",
+    "primary_domain": "validate",
+    "minutes": 120,
+    "csf_functions": [
+      "govern",
+      "identify",
+      "protect",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "inputs_planned": [
+      "transaction intent",
+      "signature metadata"
+    ],
+    "deliverables": [
+      "独立検証receipt",
+      "正常対照の結果",
+      "coverage/gaps"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "source_ids": [
+      "S02",
+      "S03"
+    ]
+  },
+  {
+    "id": "X-privacy",
+    "sector": "cross-industry",
+    "surfaces": [
+      "privacy"
+    ],
+    "title_ja": "同意撤回・保持・削除の影響を検証",
+    "status": "specification",
+    "family_id": "cross-privacy-v1",
+    "primary_domain": "investigate",
+    "minutes": 120,
+    "csf_functions": [
+      "govern",
+      "identify",
+      "protect",
+      "detect",
+      "respond",
+      "recover"
+    ],
+    "inputs_planned": [
+      "retention policy",
+      "consent",
+      "access audit"
+    ],
+    "deliverables": [
+      "独立検証receipt",
+      "正常対照の結果",
+      "coverage/gaps"
+    ],
+    "environment": "offline snapshot / isolated simulator only",
+    "grader_status": "not-implemented",
+    "source_ids": [
+      "S02",
+      "S03"
+    ]
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "decisions": {
+    "H01": "allow",
+    "H02": "deny",
+    "H03": "allow",
+    "H04": "escalate"
+  }
+}

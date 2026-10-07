@@ -1,0 +1,8 @@
+{
+  "decisions": {
+    "A01": "deny",
+    "A02": "allow",
+    "A03": "deny",
+    "A04": "unknown"
+  }
+}

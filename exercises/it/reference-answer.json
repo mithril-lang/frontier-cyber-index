@@ -1,0 +1,8 @@
+{
+  "decisions": {
+    "I01": "allow",
+    "I02": "deny",
+    "I03": "deny",
+    "I04": "deny"
+  }
+}

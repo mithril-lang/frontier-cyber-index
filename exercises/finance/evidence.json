@@ -1,0 +1,41 @@
+{
+  "id": "finance",
+  "title": "金融: 音声による振込先変更",
+  "synthetic": true,
+  "policy": "登録済み口座変更には独立callbackと別担当の承認が必要。既存の承認済み支払は継続。",
+  "surfaces": [
+    "synthetic-media",
+    "identity",
+    "data"
+  ],
+  "actions": [
+    "allow",
+    "deny",
+    "hold",
+    "unknown",
+    "escalate",
+    "deduplicate"
+  ],
+  "events": [
+    {
+      "id": "F01",
+      "time": "10:00",
+      "observation": "音声で上司を名乗る相手が口座変更を要求。callbackなし、第二承認なし。"
+    },
+    {
+      "id": "F02",
+      "time": "10:02",
+      "observation": "既存口座への支払。登録済み依頼IDと二者承認が一致。"
+    },
+    {
+      "id": "F03",
+      "time": "10:04",
+      "observation": "口座変更。登録台帳の連絡先でcallback済み、別担当承認済み、申請ID一致。"
+    },
+    {
+      "id": "F04",
+      "time": "10:05",
+      "observation": "実行台帳が未提供。F01の要求から送金の実行有無は確定できない。"
+    }
+  ]
+}

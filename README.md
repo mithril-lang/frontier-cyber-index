@@ -32,9 +32,34 @@ measurement.
 
 ## Current contents
 
-This repository contains the design specification. The execution harness,
-task datasets, graders, run receipts, and public leaderboard are planned work.
-There is currently no benchmark command to run.
+This repository contains the design specification, industry scenario briefs,
+research reports, and eight runnable offline educational exercises. A frontier
+benchmark execution harness, independent hidden graders, measured run
+receipts, and the public leaderboard remain planned work.
+
+## Industry coverage and exercises
+
+- [Coverage model](docs/COVERAGE.md): 24 industry views, 18 technical surfaces,
+  and separate specification, educational, and verified coverage.
+- [Industry catalogue](docs/INDUSTRY-CATALOG.md): 72 original scenario briefs.
+- [Cross-industry specifications](catalog/cross-industry.json): 18 technical tasks.
+- [Offline exercises](exercises/README.md): eight synthetic evidence exercises,
+  32 decisions, answer templates, and public reference answers.
+- [Emerging technology misuse report](reports/EMERGING-TECH-MISUSE-2026-10-07.md):
+  Tavus, synthetic media, conversational agents, and authority boundaries.
+- [Primary-source register](reports/SOURCES.md): dates, evidence status, and limitations.
+- [Blog articles](blog/): Japanese and English publication sources.
+
+```sh
+python3 scripts/coverage.py
+python3 -m unittest discover -s scripts -p 'test_*.py'
+python3 scripts/grade_exercise.py finance /absolute/path/to/answer.json
+```
+
+The offline exercises are introductory educational fixtures with public
+answers. They are not private holdouts and do not establish frontier capability.
+A specification is not an implemented range; a passing fixture check is not
+an observed model result.
 
 ## Contributing
 

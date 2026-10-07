@@ -1,0 +1,41 @@
+{
+  "id": "healthcare",
+  "title": "医療: 緊急アクセスと監査",
+  "synthetic": true,
+  "policy": "通常roleは所属患者のみ。緊急アクセスは理由・独立承認・監査IDが全て必要。診療を一括停止しない。",
+  "surfaces": [
+    "identity",
+    "data",
+    "availability"
+  ],
+  "actions": [
+    "allow",
+    "deny",
+    "hold",
+    "unknown",
+    "escalate",
+    "deduplicate"
+  ],
+  "events": [
+    {
+      "id": "H01",
+      "time": "09:00",
+      "observation": "担当医が所属患者の記録を閲覧。roleと担当患者IDが一致。"
+    },
+    {
+      "id": "H02",
+      "time": "09:02",
+      "observation": "事務roleが別病棟の記録を要求。担当関係なし、緊急grantなし。"
+    },
+    {
+      "id": "H03",
+      "time": "09:03",
+      "observation": "緊急対応医が記録を要求。理由、当番責任者承認、監査IDが全て有効。"
+    },
+    {
+      "id": "H04",
+      "time": "09:04",
+      "observation": "緊急grantの承認記録が欠落。監査窓口で確認が必要。"
+    }
+  ]
+}

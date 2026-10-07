@@ -1,0 +1,8 @@
+{
+  "decisions": {
+    "L01": "allow",
+    "L02": "deduplicate",
+    "L03": "deny",
+    "L04": "allow"
+  }
+}
