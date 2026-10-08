@@ -4,7 +4,9 @@ A proposed evaluation framework for measuring frontier AI cybersecurity
 capabilities, defensive task completion, agent safety, and the effect of
 Mithril's policy and evidence infrastructure.
 
-**Status: design proposal, v0.1. No benchmark runs or measured scores are published yet.**
+**Status: design proposal, v0.1. No qualified frontier benchmark scores yet.**
+The [first recorded public educational measurements](docs/EDUCATIONAL-MEASUREMENTS-2026-10-08.md)
+contain 48 real provider calls. They are reported separately from MFCI scores.
 
 Explore [Mithril Analysis — Cybersecurity](https://analysis.mithril.fund/) for
 industry coverage, methodology, educational exercises, research and JSON downloads.
@@ -38,7 +40,8 @@ measurement.
 ## Current contents
 
 This repository contains the design specification, industry scenario briefs,
-research reports, and eight runnable offline educational exercises. A frontier
+research reports, eight runnable offline educational exercises, and a bounded
+provider runner with recorded educational observations. A frontier
 benchmark execution harness, independent hidden graders, measured run
 receipts, and the public leaderboard remain planned work.
 
@@ -60,6 +63,18 @@ python3 scripts/coverage.py
 python3 -m unittest discover -s scripts -p 'test_*.py'
 python3 scripts/grade_exercise.py finance /absolute/path/to/answer.json
 ```
+
+To repeat the educational measurement with an existing OpenRouter credential
+in `OPENROUTER_API_KEY` (never put its value in a command or output):
+
+```sh
+python3 scripts/run_educational.py --models openai/gpt-6.1-sol anthropic/claude-sonnet-5.5 --repeats 3 --budget-usd 2 --output results/new-educational-run.json
+```
+
+The runner stops on uncertain provider outcomes and never retries or silently
+changes models. It records inputs, outputs, model/provider identifiers, costs,
+elapsed time and grader results. Public-answer contamination and mutable routing
+IDs prevent interpreting this track as a frontier leaderboard.
 
 The offline exercises are introductory educational fixtures with public
 answers. They are not private holdouts and do not establish frontier capability.
