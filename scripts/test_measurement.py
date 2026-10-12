@@ -5,6 +5,15 @@ from run_educational import require_budget, reservation, request_body, submissio
 
 
 class MeasurementTests(unittest.TestCase):
+    def test_profile_installs_the_frozen_policy_and_keeps_grading_instructions_in_user_content(self):
+        profile={'system_prompt':'You are Mithril Norbert, a fixed private profile.'}
+        body=request_body('xiaomi/mimo-v2.6-pro', {'id':'finance','events':[]}, 1024, profile)
+        self.assertEqual(body['messages'][0],{'role':'system','content':profile['system_prompt']})
+        self.assertEqual(body['messages'][1]['role'],'user')
+        self.assertIn('Classify the synthetic evidence',body['messages'][1]['content'])
+        self.assertFalse(body['provider']['allow_fallbacks'])
+        self.assertNotIn('reference-answer',str(body))
+
     def test_never_supplies_reference_answers(self):
         body = request_body('explicit/model', {'id': 'finance', 'policy': 'Synthetic', 'events': []}, 512)
         self.assertEqual(body['model'], 'explicit/model')

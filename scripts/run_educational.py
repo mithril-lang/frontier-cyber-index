@@ -51,8 +51,15 @@ def submission(content, exercise):
         return {'valid': False, 'grade': None}
 
 
-def request_body(model, evidence, max_tokens):
+def request_body(model, evidence, max_tokens, profile=None):
     # Public reference answers, grader and local files are NEVER model inputs.
+    if profile is not None:
+        return {'model': model, 'messages': [
+            {'role': 'system', 'content': profile['system_prompt']},
+            {'role': 'user', 'content': SYSTEM + '\nSynthetic evidence:\n' + json.dumps(evidence, ensure_ascii=False)},
+        ], 'max_tokens': max_tokens, 'response_format': {'type': 'json_object'},
+        'reasoning': {'effort': 'low', 'exclude': True},
+        'provider': {'allow_fallbacks': False}, 'usage': {'include': True}}
     return {'model': model, 'messages': [
         {'role': 'system', 'content': SYSTEM},
         {'role': 'user', 'content': json.dumps(evidence, ensure_ascii=False)},
@@ -91,6 +98,11 @@ def run(args):
         raise ValueError('OPENROUTER_API_KEY is required; values are never recorded')
     if args.output.exists():
         raise ValueError('Output already exists; refusal prevents duplicate runs')
+    profile = None
+    if getattr(args, 'profile_config', None):
+        profile = json.loads(args.profile_config.read_text())
+        if profile.get('schema') != 'mfci.norbert-profile/v1' or profile.get('id') != 'mithril/norbert' or profile.get('base_model') != 'xiaomi/mimo-v2.6-pro' or args.models != [profile['base_model']] or not isinstance(profile.get('system_prompt'), str) or not profile['system_prompt'].startswith('You are Mithril Norbert,') or profile.get('training') != 'none' or profile.get('source', {}).get('repository') != 'https://github.com/mithril-lang/mithril-fund':
+            raise ValueError('Explicit frozen Norbert MiMo configuration required')
     catalog = json.load(urllib.request.urlopen('https://openrouter.ai/api/v1/models', timeout=30))
     available = {m['id']: m for m in catalog['data']}
     if len(args.models) != len(set(args.models)) or len(args.models) > 2:
@@ -110,15 +122,20 @@ def run(args):
                                'Exact-decision grader does not assess reasoning or operational ability.',
                                'Routing model IDs do not establish immutable weight snapshots.',
                                'Three repeats do not establish statistical frontier superiority.'],
+               'profile': profile, 'profile_sha256': sha(encode(profile)) if profile else None,
+               'transport': 'direct OpenRouter; matched server-owned profile prompt; hosted Mithril authorization and fallback not evaluated',
                'runs': []}
     save(args.output, receipt)
     try:
         for model in args.models:
-            pricing = available[model]['pricing']
+            raw_pricing = available[model]['pricing']
+            tiers = [raw_pricing] + raw_pricing.get('overrides', [])
+            pricing = {field: str(max(float(t.get(field,raw_pricing[field])) for t in tiers)) for field in ['prompt','completion']}
+            if float(raw_pricing.get('request', '0')) != 0: raise ValueError('Unsupported request fee')
             for fixture in fixtures:
                 evidence = json.loads(fixture.read_text())
                 for repeat in range(args.repeats):
-                    body = request_body(model, evidence, args.max_tokens)
+                    body = request_body(model, evidence, args.max_tokens, profile)
                     worst = reservation(body, pricing)
                     require_budget(receipt['observed_cost_usd'], worst, args.budget_usd)
                     record = {'model_requested': model, 'exercise': evidence['id'], 'repeat': repeat,
@@ -149,6 +166,9 @@ def run(args):
                         record['status'] = 'cost_unavailable'
                         raise ValueError('Observed cost unavailable; stopped without another request')
                     receipt['observed_cost_usd'] += cost
+                    if result.get('model') != model:
+                        record['status'] = 'model_identity_mismatch'
+                        raise ValueError('Served model differs; stopped without substitute')
                     if not isinstance(content, str):
                         record['status'] = 'invalid_submission'
                         record['evaluation'] = {'valid': False, 'grade': None}
@@ -169,6 +189,7 @@ def run(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--profile-config', type=Path, help='Frozen exported Norbert profile; task instructions remain user content')
     parser.add_argument('--models', nargs='+', required=True)
     parser.add_argument('--repeats', type=int, default=3)
     parser.add_argument('--max-tokens', type=int, default=1024)
