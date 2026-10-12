@@ -5,6 +5,15 @@ from run_educational import require_budget, reservation, request_body, submissio
 
 
 class MeasurementTests(unittest.TestCase):
+    def test_profile_installs_the_frozen_policy_and_keeps_grading_instructions_in_user_content(self):
+        profile={'system_prompt':'You are Mithril Norbert, a fixed private profile.'}
+        body=request_body('xiaomi/mimo-v2.6-pro', {'id':'finance','events':[]}, 1024, profile)
+        self.assertEqual(body['messages'][0],{'role':'system','content':profile['system_prompt']})
+        self.assertEqual(body['messages'][1]['role'],'user')
+        self.assertIn('Classify the synthetic evidence',body['messages'][1]['content'])
+        self.assertFalse(body['provider']['allow_fallbacks'])
+        self.assertNotIn('reference-answer',str(body))
+
     def test_never_supplies_reference_answers(self):
         body = request_body('explicit/model', {'id': 'finance', 'policy': 'Synthetic', 'events': []}, 512)
         self.assertEqual(body['model'], 'explicit/model')
@@ -27,6 +36,19 @@ class MeasurementTests(unittest.TestCase):
         body = request_body('explicit/model', {'id': 'finance'}, 512)
         worst = reservation(body, {'prompt': '.000002', 'completion': '.00001'})
         self.assertGreater(worst, .013)
+
+    def test_norbert_receipt_matches_frozen_profile_and_regrades(self):
+        receipt = json.loads((Path(__file__).resolve().parents[1] / 'results/educational-norbert-mimo-2026-10-12.json').read_text())
+        self.assertEqual(receipt['profile']['base_model'], 'xiaomi/mimo-v2.6-pro')
+        self.assertEqual(receipt['profile']['training'], 'none')
+        self.assertIsNone(receipt['mfci_score'])
+        self.assertEqual(receipt['qualified_frontier_runs'], 0)
+        self.assertEqual(len(receipt['runs']), 24)
+        for record in receipt['runs']:
+            self.assertEqual(record['evaluation'], submission(record['response_content'], record['exercise']))
+            self.assertEqual(record['model_requested'], record['model_served'])
+            self.assertEqual(record['model_served'], receipt['profile']['base_model'])
+        self.assertAlmostEqual(sum(r['usage']['cost'] for r in receipt['runs']), receipt['observed_cost_usd'])
 
     def test_published_receipt_can_be_independently_regraded(self):
         path = Path(__file__).resolve().parents[1] / 'results/educational-2026-10-08.json'

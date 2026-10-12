@@ -97,3 +97,5 @@ vulnerabilities in public issues.
 
 MFCI is an independent design. Upstream benchmark scores and modified or
 subset runs must be labeled separately from MFCI measurements.
+
+[Norbert / MiMo v2.6 Pro educational observations](docs/NORBERT-MIMO-EDUCATIONAL-2026-10-12.md): 87.5% decision agreement (84/96 repeated public judgments), measured on 2026-10-12. This is a matched prompt profile measurement, not a qualified MFCI-D/O/S score.
